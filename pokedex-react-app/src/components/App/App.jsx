@@ -3,17 +3,20 @@ import PokemonPage from '../PokemonPage/PokemonPage'
 import PokedexSearch from '../PokedexSearch/PokedexSearch'
 import './App.css'
 import '../../../public/fonts.css'
+import '../../../public/colors.css';
 
 
 function App() {  
   let [pokemonData, setPokemonData] = useState({})
+  let [isDataLoading, setIsDataLoading] = useState(true);
 
   useEffect(()=>{
-    fetch(`https://pokeapi.co/api/v2/pokemon/ditto`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/487`)
     .then((response) => {
       response.json()
         .then((jsonData) => {
           setPokemonData(jsonData)
+          setIsDataLoading(false)
         })
     })
     .catch((error) => {
@@ -25,7 +28,7 @@ function App() {
 
   return (
     <div className='App container-fluid'>
-      <PokemonPage pokemonData={pokemonData}/>
+      {!isDataLoading && <PokemonPage pokemonData={pokemonData}/>}
     </div>
   )
 }
