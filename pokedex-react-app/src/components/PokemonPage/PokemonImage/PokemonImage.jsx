@@ -29,6 +29,7 @@ function PokemonImage(props){
             } 
             >
             <img
+                className="img-fluid"
                 src={props.img} 
                 alt={props.pokemonName}/>
         </div>

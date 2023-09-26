@@ -3,6 +3,7 @@ import "./PokemonPage.css"
 
 import PokemonTitle from "./PokemonTitle/PokemonTitle"
 import PokemonTypes from "./PokemonTypes/PokemonTypes"
+import PokemonDescription from "./PokemonDescription/PokemonDescription"
 import PokemonImage from "./PokemonImage/PokemonImage"
 
 function PokemonPage(props){
@@ -10,11 +11,17 @@ function PokemonPage(props){
 
     return(
         <div className="container-fluid pokemon-page">
-            <PokemonTitle entryNumber={props.pokemonData.id} entryName={props.pokemonData.name}/>
-            <PokemonTypes types={pokemonData.types}/>
+            <PokemonTitle 
+                entryNumber={pokemonData.id} 
+                entryName={pokemonData.name}/>
+            <PokemonDescription 
+                id={pokemonData.id}
+            />
+            <PokemonTypes 
+                types={pokemonData.types}/>
             <PokemonImage 
                 img={pokemonData.sprites.other.home.front_default} 
-                pokemonName={`No Image Available For Pokemon: ${props.pokemonData.name}`}
+                pokemonName={`No Image Available For Pokemon: ${pokemonData.name}`}
                 types={pokemonData.types}
                 />
         </div>
