@@ -1,0 +1,5 @@
+.pokemon-types{
+    display: flex;    
+    list-style: none;
+    border: solid black;
+}
