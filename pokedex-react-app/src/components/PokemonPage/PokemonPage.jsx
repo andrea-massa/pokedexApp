@@ -5,6 +5,7 @@ import PokemonTitle from "./PokemonTitle/PokemonTitle"
 import PokemonTypes from "./PokemonTypes/PokemonTypes"
 import PokemonDescription from "./PokemonDescription/PokemonDescription"
 import PokemonImage from "./PokemonImage/PokemonImage"
+import PokemonAbilities from "./PokemonAbilities/PokemonAbilities"
 
 function PokemonPage(props){
     const {pokemonData} = props        
@@ -22,6 +23,9 @@ function PokemonPage(props){
                         types={pokemonData.types}/>
                     <PokemonDescription 
                         id={pokemonData.id}/>
+                    <PokemonAbilities
+                        abilities={pokemonData.abilities}
+                    />
                 </div>
                 <div className="container-md-10 container-lg-6 container-xlg-5 image-container">
                     <PokemonImage 
