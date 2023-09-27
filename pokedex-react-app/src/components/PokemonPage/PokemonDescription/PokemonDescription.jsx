@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
+import Loading from "../../Loading/Loading";
 import "./PokemonDescription.css"
+import PokemonGenus from "./PokemonGenus/PokemonGenus";
 
 function PokemonDescription(props){
     const [speciesData, setSpeciesData] = useState({});
@@ -22,11 +24,18 @@ function PokemonDescription(props){
     }, [props.id])
 
 
-
-    return(
+    return(      
+      
         <div className="pokemon-description">
-            {/* <PokemonGenus value={"Blaze Pokemon"}/> */}
-        </div>
+            {!isDataLoading 
+            ? 
+              <PokemonGenus
+                value={speciesData.genera[7].genus}
+              />              
+            : 
+              <Loading/>
+            }
+        </div>            
     )
 }
 

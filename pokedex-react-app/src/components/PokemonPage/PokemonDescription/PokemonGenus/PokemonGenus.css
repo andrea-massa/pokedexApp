@@ -1,0 +1,8 @@
+.pokemon-genus{
+    color: white;
+    text-decoration: underline;
+    font-family: var(--sans-font);
+    font-size: 25px;
+    font-weight: 400;
+    text-transform: uppercase;
+}

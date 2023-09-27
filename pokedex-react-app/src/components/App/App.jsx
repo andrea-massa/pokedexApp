@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import PokemonPage from '../PokemonPage/PokemonPage'
+import Loading from '../Loading/Loading'
 import PokedexSearch from '../PokedexSearch/PokedexSearch'
 import './App.css'
 import '../../../public/fonts.css'
@@ -28,7 +29,12 @@ function App() {
 
   return (
     <div className='App container-fluid'>
-      {!isDataLoading && <PokemonPage pokemonData={pokemonData}/>}
+      {!isDataLoading 
+      ? 
+        <PokemonPage pokemonData={pokemonData}/> 
+        : 
+        <Loading/>
+      }
     </div>
   )
 }
