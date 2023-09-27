@@ -10,20 +10,24 @@ function PokemonPage(props){
     const {pokemonData} = props        
 
     return(
-        <div className="container-fluid pokemon-page">
+        <div className="container-fluid px-sm-0 px-md-3 px-lg-5 pokemon-page">
             <PokemonTitle 
                 entryNumber={pokemonData.id} 
                 entryName={pokemonData.name}/>
-            <PokemonDescription 
-                id={pokemonData.id}
-            />
-            <PokemonTypes 
-                types={pokemonData.types}/>
-            <PokemonImage 
-                img={pokemonData.sprites.other.home.front_default} 
-                pokemonName={`No Image Available For Pokemon: ${pokemonData.name}`}
-                types={pokemonData.types}
-                />
+            <div className="container d-md-flex body-container">
+                <div className="container-md-10 container-lg-6 container-xlg-5 description-container">
+                    <PokemonTypes 
+                        types={pokemonData.types}/>
+                    <PokemonDescription 
+                        id={pokemonData.id}/>
+                </div>
+                <div className="container-md-10 container-lg-6 container-xlg-5 image-container">
+                    <PokemonImage 
+                        img={pokemonData.sprites.other.home.front_default} 
+                        pokemonName={`No Image Available For Pokemon: ${pokemonData.name}`}
+                        types={pokemonData.types}/>
+                </div>
+            </div>
         </div>
         
     )

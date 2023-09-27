@@ -29,7 +29,7 @@ function PokemonDescription(props){
         <>
             {!isDataLoading 
             ? 
-            <div className="pokemon-description">
+            <div className="col col-md-11 pokemon-description">
               <PokemonGenus
                 value={speciesData.genera[7].genus}/>
               <PokemonTextEntry 

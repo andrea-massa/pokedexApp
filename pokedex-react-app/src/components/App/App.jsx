@@ -12,7 +12,7 @@ function App() {
   let [isDataLoading, setIsDataLoading] = useState(true);
 
   useEffect(()=>{
-    fetch(`https://pokeapi.co/api/v2/pokemon/blaziken`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/torchic`)
     .then((response) => {
       response.json()
         .then((jsonData) => {
