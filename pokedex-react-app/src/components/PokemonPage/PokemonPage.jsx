@@ -11,10 +11,12 @@ function PokemonPage(props){
 
     return(
         <div className="container-fluid px-sm-0 px-md-3 px-lg-5 pokemon-page">
-            <PokemonTitle 
-                entryNumber={pokemonData.id} 
-                entryName={pokemonData.name}/>
-            <div className="container d-md-flex body-container">
+            <div className="container header-container">
+                <PokemonTitle 
+                    entryNumber={pokemonData.id} 
+                    entryName={pokemonData.name}/>
+            </div>
+            <div className="container d-md-flex justify-content-between body-container">
                 <div className="container-md-10 container-lg-6 container-xlg-5 description-container">
                     <PokemonTypes 
                         types={pokemonData.types}/>
