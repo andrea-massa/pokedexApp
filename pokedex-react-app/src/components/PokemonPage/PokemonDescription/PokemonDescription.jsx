@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import Loading from "../../Loading/Loading";
 import "./PokemonDescription.css"
 import PokemonGenus from "./PokemonGenus/PokemonGenus";
+import PokemonTextEntry from "./PokemonTextEntry/PokemonTextEntry";
 
 function PokemonDescription(props){
     const [speciesData, setSpeciesData] = useState({});
@@ -25,17 +26,19 @@ function PokemonDescription(props){
 
 
     return(      
-      
-        <div className="pokemon-description">
+        <>
             {!isDataLoading 
             ? 
+            <div className="pokemon-description">
               <PokemonGenus
-                value={speciesData.genera[7].genus}
-              />              
+                value={speciesData.genera[7].genus}/>
+              <PokemonTextEntry 
+                value={speciesData.flavor_text_entries[0].flavor_text}/>
+            </div>
             : 
               <Loading/>
             }
-        </div>            
+        </>            
     )
 }
 
