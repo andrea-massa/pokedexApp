@@ -4,7 +4,9 @@ import "./Loading.css"
 function Loading(){
     return(
         <div className="loading">
-            <p>Loading ... </p>
+            <div className="pokeball">
+            </div>
+            <p className="loading-text">Loading...</p>
         </div>
     )
 }
