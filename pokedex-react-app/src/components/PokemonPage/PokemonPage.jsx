@@ -6,6 +6,7 @@ import PokemonTypes from "./PokemonTypes/PokemonTypes"
 import PokemonDescription from "./PokemonDescription/PokemonDescription"
 import PokemonImage from "./PokemonImage/PokemonImage"
 import PokemonAbilities from "./PokemonAbilities/PokemonAbilities"
+import PokemonBiometrics from "./PokemonBiometrics/PokemonBiometrics"
 
 function PokemonPage(props){
     const {pokemonData} = props        
@@ -26,6 +27,10 @@ function PokemonPage(props){
                     <PokemonAbilities
                         abilities={pokemonData.abilities}
                     />
+                    <PokemonBiometrics 
+                        weight={pokemonData.weight}
+                        height={pokemonData.height}
+                    />                    
                 </div>
                 <div className="container-md-10 container-lg-6 container-xlg-5 image-container">
                     <PokemonImage 

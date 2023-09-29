@@ -1,0 +1,6 @@
+.pokemon-biometrics{
+    border: solid black;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
