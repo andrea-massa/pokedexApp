@@ -1,0 +1,10 @@
+.ability{
+    width: 50%;    
+    margin: 5px 0px 5px 0px;
+    border: solid black;
+    color: white;
+    text-align: center;
+    font-family: var(--mono-font);
+    font-size: 15px;
+    text-transform: uppercase;
+}

@@ -18,7 +18,7 @@ function PokemonPage(props){
                     entryName={pokemonData.name}/>
             </div>
             <div className="container d-md-flex justify-content-between body-container">
-                <div className="container-md-10 container-lg-6 container-xlg-5 description-container">
+                <div className="container-md-10 border container-lg-6 container-xlg-5 description-container">
                     <PokemonTypes 
                         types={pokemonData.types}/>
                     <PokemonDescription 
