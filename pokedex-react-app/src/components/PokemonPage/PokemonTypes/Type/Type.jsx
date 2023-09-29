@@ -4,7 +4,7 @@ function Type(props){
 
     return(
         <li 
-            className="pokemon-type"
+            className="my-1 pokemon-type"
             style={{backgroundColor: `var(--${props.value}Color)`}}
             >
                 {props.value}
