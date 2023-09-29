@@ -6,14 +6,31 @@ import PokemonTextEntry from "./PokemonTextEntry/PokemonTextEntry";
 
 function PokemonDescription(props){
     const [speciesData, setSpeciesData] = useState({});
+    const [descriptionData, setDescriptionData] = useState(null)
     const [isDataLoading, setIsDataLoading] = useState(true);
 
     useEffect(() => {
+        setIsDataLoading(true)
         fetch(`https://pokeapi.co/api/v2/pokemon-species/${props.id}`)
         .then((response) => {
           response.json()
             .then((jsonData) => {
-              setSpeciesData(jsonData)
+              let pokemonGenus = ''
+              let pokemonDescription = ''
+              for (let g of jsonData.genera){
+                if(g.language.name === 'en'){
+                  pokemonGenus = g.genus
+                }
+              }
+              for(let d of jsonData.flavor_text_entries){
+                if(d.language.name === 'en'){
+                  pokemonDescription = d.flavor_text
+                }
+              }
+              setDescriptionData({
+                genus: pokemonGenus, 
+                flavor_text: pokemonDescription     
+              })
               setIsDataLoading(false)
             })
         })
@@ -30,9 +47,9 @@ function PokemonDescription(props){
             ? 
             <div className="col col-md-11 pokemon-description">
               <PokemonGenus
-                value={speciesData.genera[7].genus}/>
+                value={descriptionData.genus}/>
               <PokemonTextEntry 
-                value={speciesData.flavor_text_entries[0].flavor_text}/>
+                value={descriptionData.flavor_text}/>
             </div>
             : 
               <Loading/>

@@ -5,7 +5,7 @@ function Error(props){
         <div className="container error-container">
             <div className="error">
                 <h2>Error</h2>
-                <p>{props.errorTxt}</p>
+                <p className="error-message">{props.errorTxt}</p>
             </div>
         </div>
     )    
