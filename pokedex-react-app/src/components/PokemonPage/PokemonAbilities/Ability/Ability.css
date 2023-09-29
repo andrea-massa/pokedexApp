@@ -3,8 +3,11 @@
     margin: 5px 0px 5px 0px;
     border: solid black;
     color: white;
-    text-align: center;
     font-family: var(--mono-font);
     font-size: 15px;
     text-transform: uppercase;
 }
+    .ability .isHidden{
+        font-size: 25px;
+        margin-right: 10px;
+    }
