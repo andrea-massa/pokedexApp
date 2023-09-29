@@ -14,7 +14,6 @@ function PokemonDescription(props){
           response.json()
             .then((jsonData) => {
               setSpeciesData(jsonData)
-              console.log(jsonData);
               setIsDataLoading(false)
             })
         })

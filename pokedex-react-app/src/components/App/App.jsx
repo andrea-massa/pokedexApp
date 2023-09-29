@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import PokemonPage from '../PokemonPage/PokemonPage'
 import Loading from '../Loading/Loading'
 import PokedexSearch from '../PokedexSearch/PokedexSearch'
+import Error from '../Error/Error'
 import './App.css'
 import '../../../public/fonts.css'
 import '../../../public/colors.css';
@@ -10,22 +11,40 @@ import '../../../public/colors.css';
 function App() {  
   let [pokemonData, setPokemonData] = useState({})
   let [isDataLoading, setIsDataLoading] = useState(true);
+  let [error, setError] = useState(null)
   let [input, setInput] = useState('');
   let [query, setQuery] = useState('ditto')
 
   useEffect(()=>{
+    setIsDataLoading(true);
+    setError(null);
     fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
-    .then((response) => {
-      response.json()
-        .then((jsonData) => {
-          setPokemonData(jsonData)
+      .then((response) => {
+        if(!response.ok){
           setIsDataLoading(false)
+          setPokemonData(null);
+          setError({
+            errorStatus: response.status,
+            errorMessage: `Could not find pokemon with name ${query}`
+          })
+        }
+        return response.json();
+      })
+        .then((jsonData) => {
+          if(jsonData.hasOwnProperty('abilities')){
+            setError(null);
+            setPokemonData(jsonData)
+            setIsDataLoading(false)
+            return
+          }
+          else{
+            setIsDataLoading(false)
+            setPokemonData(null);
+            setError({
+              errorMessage: `Could not find pokemon with name ${query}`
+            })
+          }
         })
-    })
-    .catch((error) => {
-      console.log(error)
-      alert('There was an error')
-    })
   }, [query])
   
 
@@ -42,13 +61,16 @@ function App() {
             }}>
           Search</button>
       </div>
-
-      {!isDataLoading 
-      ? 
-        <PokemonPage pokemonData={pokemonData}/> 
-        : 
+      
+      {error !== null 
+        && <Error errorTxt={error.errorMessage}/>}
+      
+      {isDataLoading &&
         <Loading/>
       }
+
+      {pokemonData !== null && !isDataLoading && 
+        <PokemonPage pokemonData = {pokemonData}/>}
     </div>
   )
 }
