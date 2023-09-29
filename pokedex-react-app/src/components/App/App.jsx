@@ -30,7 +30,7 @@ function App() {
   
 
   return (
-    <div className='App container-fluid'>
+    <div className='app container-fluid'>
       <div className='controls'>
         <input type="text" value={input} onChange={(e) => {
           setInput(e.target.value)
