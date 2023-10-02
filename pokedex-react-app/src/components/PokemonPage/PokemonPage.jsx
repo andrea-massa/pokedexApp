@@ -7,6 +7,7 @@ import PokemonDescription from "./PokemonDescription/PokemonDescription"
 import PokemonImage from "./PokemonImage/PokemonImage"
 import PokemonAbilities from "./PokemonAbilities/PokemonAbilities"
 import PokemonBiometrics from "./PokemonBiometrics/PokemonBiometrics"
+import PokemonStats from "./PokemonStats/PokemonStats"
 
 function PokemonPage(props){
     const {pokemonData} = props        
