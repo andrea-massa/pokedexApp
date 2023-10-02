@@ -21,7 +21,7 @@ function PokemonPage(props){
             <div className="container d-md-flex justify-content-between body-container">
                 <div className="d-md-none image-container">
                     <PokemonImage 
-                            img={pokemonData.sprites.other.home.front_default} 
+                            img={pokemonData.sprites.other.home.front_default || pokemonData.sprites.front_default} 
                             pokemonName={`No Image Available For Pokemon: ${pokemonData.name}`}
                             types={pokemonData.types}/>
                 </div>
@@ -40,7 +40,7 @@ function PokemonPage(props){
                 </div>
                 <div className="d-none d-md-block container-md-10 container-lg-6 container-xlg-5 image-container">
                     <PokemonImage 
-                        img={pokemonData.sprites.other.home.front_default} 
+                        img={pokemonData.sprites.other.home.front_default || pokemonData.sprites.front_default} 
                         pokemonName={`No Image Available For Pokemon: ${pokemonData.name}`}
                         types={pokemonData.types}/>
                 </div>
