@@ -55,7 +55,7 @@ function PokemonPage(props){
                 <div className="row">
                     <div className="col-12 col-md-8 evolution-container">
                         <PokemonEvolutionChain
-                            evolutionChainEndpoint={evolutionChainEndpoint}
+                            endpoint={evolutionChainEndpoint}
                         />
                     </div>
                     <div className="border col-12 col-md-4 stats-container">
