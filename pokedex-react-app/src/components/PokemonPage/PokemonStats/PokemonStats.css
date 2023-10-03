@@ -1,5 +1,6 @@
 .pokemon-stats-wrapper{
-    margin-top: 20px
+    margin-top: 20px;
+    border: solid black;
 }
     .pokemon-stats{
         border: solid black;

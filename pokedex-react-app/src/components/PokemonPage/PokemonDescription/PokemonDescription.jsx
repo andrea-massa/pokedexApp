@@ -31,6 +31,7 @@ function PokemonDescription(props){
                 genus: pokemonGenus, 
                 flavor_text: pokemonDescription     
               })
+              props.evolutionChainCallback(jsonData.evolution_chain.url)
               setIsDataLoading(false)
             })
         })

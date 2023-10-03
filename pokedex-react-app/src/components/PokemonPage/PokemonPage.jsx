@@ -7,10 +7,12 @@ import PokemonDescription from "./PokemonDescription/PokemonDescription"
 import PokemonImage from "./PokemonImage/PokemonImage"
 import PokemonAbilities from "./PokemonAbilities/PokemonAbilities"
 import PokemonBiometrics from "./PokemonBiometrics/PokemonBiometrics"
+import PokemonEvolutionChain from "./PokemonEvolutionChain/PokemonEvolutionChain"
 import PokemonStats from "./PokemonStats/PokemonStats"
 
 function PokemonPage(props){
     const {pokemonData} = props        
+    const [evolutionChainEndpoint, setEvolutionChainEndpoint] = useState('');    
 
     return(
         <div className="container-fluid px-sm-0 px-md-3 px-lg-5 pokemon-page">
@@ -31,7 +33,10 @@ function PokemonPage(props){
                         <PokemonTypes 
                             types={pokemonData.types}/>
                         <PokemonDescription 
-                            id={pokemonData.id}/>
+                            id={pokemonData.id}
+                            evolutionChainCallback={(endpoint) => {
+                                setEvolutionChainEndpoint(endpoint)
+                            }}/>
                         <PokemonAbilities
                             abilities={pokemonData.abilities}
                         />
@@ -49,7 +54,9 @@ function PokemonPage(props){
                 </div>
                 <div className="row">
                     <div className="col-12 col-md-8 evolution-container">
-
+                        <PokemonEvolutionChain
+                            evolutionChainEndpoint={evolutionChainEndpoint}
+                        />
                     </div>
                     <div className="border col-12 col-md-4 stats-container">
                         <PokemonStats 
