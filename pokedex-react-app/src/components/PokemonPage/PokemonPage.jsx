@@ -14,36 +14,45 @@ function PokemonPage(props){
 
     return(
         <div className="container-fluid px-sm-0 px-md-3 px-lg-5 pokemon-page">
-            <div className="container header-container">
+            <div className="row header-container">
                 <PokemonTitle 
                     entryNumber={pokemonData.id} 
                     entryName={pokemonData.name}/>
             </div>
-            <div className="container d-md-flex justify-content-between body-container">
+            <div className="container body-container">
                 <div className="d-md-none image-container">
                     <PokemonImage 
                             img={pokemonData.sprites.other.home.front_default || pokemonData.sprites.front_default} 
                             pokemonName={`No Image Available For Pokemon: ${pokemonData.name}`}
                             types={pokemonData.types}/>
                 </div>
-                <div className="container-md-10 border container-lg-6 container-xlg-5 description-container">
-                    <PokemonTypes 
-                        types={pokemonData.types}/>
-                    <PokemonDescription 
-                        id={pokemonData.id}/>
-                    <PokemonAbilities
-                        abilities={pokemonData.abilities}
-                    />
-                    <PokemonBiometrics 
-                        weight={pokemonData.weight}
-                        height={pokemonData.height}
-                    />                    
+                <div className="row">
+                    <div className="col col-md-8 description-container">
+                        <PokemonTypes 
+                            types={pokemonData.types}/>
+                        <PokemonDescription 
+                            id={pokemonData.id}/>
+                        <PokemonAbilities
+                            abilities={pokemonData.abilities}
+                        />
+                        <PokemonBiometrics 
+                            weight={pokemonData.weight}
+                            height={pokemonData.height}
+                        />                    
+                    </div>
+                    <div className="d-none d-md-block col-md-4 image-container">
+                        <PokemonImage 
+                            img={pokemonData.sprites.other.home.front_default || pokemonData.sprites.front_default} 
+                            pokemonName={`No Image Available For Pokemon: ${pokemonData.name}`}
+                            types={pokemonData.types}/>
+                    </div>
                 </div>
-                <div className="d-none d-md-block container-md-10 container-lg-6 container-xlg-5 image-container">
-                    <PokemonImage 
-                        img={pokemonData.sprites.other.home.front_default || pokemonData.sprites.front_default} 
-                        pokemonName={`No Image Available For Pokemon: ${pokemonData.name}`}
-                        types={pokemonData.types}/>
+                <div className="row">
+                    <div className="col col-md-4 stats-container">
+                        <PokemonStats 
+                            stats={pokemonData.stats}
+                        />                    
+                    </div>
                 </div>
             </div>
         </div>

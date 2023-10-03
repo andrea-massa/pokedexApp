@@ -1,0 +1,10 @@
+.stat{
+    border: solid black;     
+}
+    .stat .stan-name{
+        border: solid;
+    }
+    .stat .stat-value{
+        border: solid black;
+        display: inline-block;                
+    }
