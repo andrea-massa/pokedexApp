@@ -48,7 +48,10 @@ function PokemonPage(props){
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col col-md-4 stats-container">
+                    <div className="col-12 col-md-8 evolution-container">
+
+                    </div>
+                    <div className="border col-12 col-md-4 stats-container">
                         <PokemonStats 
                             stats={pokemonData.stats}
                         />                    
