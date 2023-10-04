@@ -13,12 +13,14 @@ function PokemonEvolutionChain(props){
                 response.json()
                     .then((jsonData) => {
                         setIsLoading(false)
-                        setEvolutionData({firstStage:[jsonData.chain.evolves_to]}, {secondStage:[jsonData.chain.evolves_to.evolves_to]});
+                        setEvolutionData({firstStage: jsonData.chain})
                         if(jsonData.chain.evolves_to.length > 0){
-                            setEvolutionData({firstStage: jsonData.chain.evolves_to})
+                            setEvolutionData((prevValue) => {
+                                return ({firstStage: prevValue.firstStage, secondStage: jsonData.chain.evolves_to})
+                            })
                             if(jsonData.chain.evolves_to[0].evolves_to.length > 0){
-                                setEvolutionData((previousValue) =>{
-                                    return ({firstStage: previousValue.firstStage, secondStage: jsonData.chain.evolves_to[0].evolves_to})
+                                setEvolutionData((prevValue) =>{
+                                    return ({firstStage: prevValue.firstStage, secondStage: prevValue.secondStage, thirdStage: jsonData.chain.evolves_to[0].evolves_to})
                                 })
                             }
                         }
@@ -41,23 +43,15 @@ function PokemonEvolutionChain(props){
             {isLoading
                 ?
                 <Loading/>
-                :
+                :                
                 <ul className="evolution-nodes">
-                    {/* <PokemonEvolutionNode
-                        hasNext={hasSecondEvolution}                      
-                        pokemonData={evolutionData.chain.species}/>
-                    {hasSecondEvolution && 
-                        <PokemonEvolutionNode
-                            hasNext={hasThirdEvolution}
-                            pokemonData={evolutionData.chain.evolves_to[0].species}
-                        />                    
-                    }
-                    {hasThirdEvolution && 
-                        <PokemonEvolutionNode
-                            hasNext={false}
-                            pokemonData={evolutionData.chain.evolves_to[0].evolves_to[0].species}
-                        />
-                    } */}
+                    {Object.keys(evolutionData).map((key, index) => {
+                        return (
+                            <PokemonEvolutionNode
+                                key={index}
+                                nodeData={evolutionData[key]}/>
+                        )
+                    })}
                 </ul>
             }
         </div>
