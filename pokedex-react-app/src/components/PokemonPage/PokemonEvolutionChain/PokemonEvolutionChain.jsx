@@ -4,25 +4,23 @@ import Loading from "../../Loading/Loading";
 import PokemonEvolutionNode from "./PokemonEvolutionNode/PokemonEvolutionNode";
 
 function PokemonEvolutionChain(props){
-    const [evolutionData, setEvolutionData] = useState(null);
+    const [evolutionData, setEvolutionData] = useState(null)
     const [isLoading, setIsLoading] = useState(true);
-    const [hasSecondEvolution, setHasSecondEvolution] = useState(false);
-    const [hasThirdEvolution, setHasThirdEvolution] = useState(false);
 
     useEffect(() => {        
-        setIsLoading(true)
-        setEvolutionData(null)
-        setHasSecondEvolution(false)
-        setHasThirdEvolution(false)
         fetch(props.endpoint)
             .then((response) => {
                 response.json()
                     .then((jsonData) => {
                         setIsLoading(false)
-                        setEvolutionData(jsonData);
-                        setHasSecondEvolution(jsonData.chain.evolves_to.length > 0 ? true : false)
-                        if(jsonData.chain.evolves_to.length > 0 && jsonData.chain.evolves_to[0].evolves_to.length > 0){
-                            setHasThirdEvolution(true)
+                        setEvolutionData({firstStage:[jsonData.chain.evolves_to]}, {secondStage:[jsonData.chain.evolves_to.evolves_to]});
+                        if(jsonData.chain.evolves_to.length > 0){
+                            setEvolutionData({firstStage: jsonData.chain.evolves_to})
+                            if(jsonData.chain.evolves_to[0].evolves_to.length > 0){
+                                setEvolutionData((previousValue) =>{
+                                    return ({firstStage: previousValue.firstStage, secondStage: jsonData.chain.evolves_to[0].evolves_to})
+                                })
+                            }
                         }
                     })
             })
@@ -30,6 +28,11 @@ function PokemonEvolutionChain(props){
                 setIsLoading(false)
                 alert(error)
             })
+        
+        return(() =>{
+            setIsLoading(true)
+            setEvolutionData(null)
+        })
     }, [props.endpoint])
 
     return (
@@ -40,8 +43,8 @@ function PokemonEvolutionChain(props){
                 <Loading/>
                 :
                 <ul className="evolution-nodes">
-                    <PokemonEvolutionNode
-                        hasNext={hasSecondEvolution}                        
+                    {/* <PokemonEvolutionNode
+                        hasNext={hasSecondEvolution}                      
                         pokemonData={evolutionData.chain.species}/>
                     {hasSecondEvolution && 
                         <PokemonEvolutionNode
@@ -54,7 +57,7 @@ function PokemonEvolutionChain(props){
                             hasNext={false}
                             pokemonData={evolutionData.chain.evolves_to[0].evolves_to[0].species}
                         />
-                    }
+                    } */}
                 </ul>
             }
         </div>
