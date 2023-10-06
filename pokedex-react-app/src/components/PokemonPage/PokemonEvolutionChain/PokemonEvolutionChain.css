@@ -1,0 +1,10 @@
+.pokemon-evolution-chain{
+    border: solid black;
+    margin-top: 20px;
+}
+    .evolution-nodes{
+        list-style: none;
+        margin: 0;
+        padding: 0; 
+        justify-content: space-evenly;               
+    }

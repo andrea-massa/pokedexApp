@@ -13,7 +13,7 @@ function PokemonEvolutionChain(props){
                 response.json()
                     .then((jsonData) => {
                         setIsLoading(false)
-                        setEvolutionData({firstStage: jsonData.chain})
+                        setEvolutionData({firstStage: [jsonData.chain]})
                         if(jsonData.chain.evolves_to.length > 0){
                             setEvolutionData((prevValue) => {
                                 return ({firstStage: prevValue.firstStage, secondStage: jsonData.chain.evolves_to})
@@ -38,13 +38,12 @@ function PokemonEvolutionChain(props){
     }, [props.endpoint])
 
     return (
-        <div className="evolution-chain">
-            <h3>Evolution Chain</h3>
+        <div className="pokemon-evolution-chain">
             {isLoading
                 ?
                 <Loading/>
                 :                
-                <ul className="evolution-nodes">
+                <ul className="d-flex flex-column flex-md-row evolution-nodes">
                     {Object.keys(evolutionData).map((key, index) => {
                         return (
                             <PokemonEvolutionNode

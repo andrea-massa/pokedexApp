@@ -1,0 +1,10 @@
+.pokemon-evolution-form{
+    border: solid black;    
+}
+    .form-name{
+        text-align: center;
+        color: white;
+        text-transform: capitalize;
+        font-family: var(--mono-font);
+        font-size: 16px;
+    }
