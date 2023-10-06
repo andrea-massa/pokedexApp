@@ -17,7 +17,7 @@ function PokemonImage(props){
 
     return(
         <div 
-            className={`pokemon-image`}
+            className={`${props.isEvolutionImage ? 'evolution-form-image' : 'pokemon-image'}`} 
             style={colorsArr.length === 2 ?
                 {background: `
                     linear-gradient(to bottom right, var(--${colorsArr[0]}) 0%, var(--${colorsArr[1]}) 50%) bottom right / 50% 50% no-repeat, 
@@ -31,7 +31,7 @@ function PokemonImage(props){
             <img
                 className="img-fluid"
                 src={props.img} 
-                alt={props.pokemonName}/>
+                alt={`No image available for ${props.pokemonName}`}/>
         </div>
     )
 }

@@ -48,7 +48,7 @@ function PokemonPage(props){
                     <div className="d-none d-md-block col-md-4 image-container">
                         <PokemonImage 
                             img={pokemonData.sprites.other.home.front_default || pokemonData.sprites.front_default} 
-                            pokemonName={`No Image Available For Pokemon: ${pokemonData.name}`}
+                            pokemonName={pokemonData.name}
                             types={pokemonData.types}/>
                     </div>
                 </div>
