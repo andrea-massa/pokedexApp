@@ -2,6 +2,7 @@ import "./PokemonEvolutionForm.css"
 import Loading from "../../../../Loading/Loading"
 import PokemonImage from "../../../PokemonImage/PokemonImage"
 import { useEffect, useState } from "react"
+import PokemonEvolutionTrigger from "../PokemonEvolutionTrigger/PokemonEvolutionTrigger"
 
 function PokemonEvolutionForm(props){
     const [isLoading, setIsLoading] = useState('true')
@@ -17,7 +18,6 @@ function PokemonEvolutionForm(props){
                             img: jsonData.sprites.other.home.front_default || jsonData.sprites.front_default,
                             types: jsonData.types
                         })
-                        setPokemonTypes
                     })
             })
             .catch((error) => {
@@ -31,24 +31,27 @@ function PokemonEvolutionForm(props){
     }, [props.pokemonData.url])
 
     return(
-        <div className="pokemon-evolution-form">
-            <div className="form-image-container">       
-                {isLoading 
-                ? 
-                <Loading/>
-                :
-                <PokemonImage
-                    isEvolutionImage={true}
-                    img={formImageData.img} 
-                    pokemonName={props.pokemonData.name}
-                    types={formImageData.types}/>
-                // <img 
-                //     className='form-image' 
-                //     src={formImage} 
-                //     alt="no_image_availbale" />                             
-                }
+        <div className="d-lg-flex flex-row">
+            {props.evolutionData.length > 0
+                && 
+                <PokemonEvolutionTrigger
+                    triggerName={props.evolutionData[0].trigger.name}/>
+            }
+            <div className="pokemon-evolution-form">
+                <div className="form-image-container">       
+                    {isLoading 
+                    ? 
+                    <Loading/>
+                    :
+                    <PokemonImage
+                        isEvolutionImage={true}
+                        img={formImageData.img} 
+                        pokemonName={props.pokemonData.name}
+                        types={formImageData.types}/>                       
+                    }
+                </div>
+                <p className="form-name">{props.pokemonData.name}</p>
             </div>
-            <p className="form-name">{props.pokemonData.name}</p>
         </div>
     )
 }

@@ -43,7 +43,7 @@ function PokemonEvolutionChain(props){
                 ?
                 <Loading/>
                 :                
-                <ul className="d-flex flex-column flex-md-row evolution-nodes">
+                <ul className="d-flex flex-column flex-lg-row justify-content-lg-start evolution-nodes">
                     {Object.keys(evolutionData).map((key, index) => {
                         return (
                             <PokemonEvolutionNode
