@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react'
-import PokemonPage from '../PokemonPage/PokemonPage'
 import Loading from '../Loading/Loading'
+import AppError from '../AppError/AppError'
 import PokedexSearch from '../PokedexSearch/PokedexSearch'
-import AppError from '../Error/AppError'
+import PokemonPage from '../PokemonPage/PokemonPage'
 import './App.css'
 import '../../../public/fonts.css'
-import '../../../public/colors.css';
 
 
 function App() {  
@@ -17,32 +16,33 @@ function App() {
 
   useEffect(()=>{
     fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
-      .then((response) => {
-        if(!response.ok){
-          throw new Error(`Could not find Pokemon with given query ${query}`)
-        }
-        return response.json();
+    .then((response) => {
+      if(!response.ok){
+        throw new Error(`Could not find Pokemon with given query ${query}`)
+      }
+      return response.json();
+    })
+    .then((jsonData) => {
+      if(!jsonData.hasOwnProperty('abilities')){
+        throw new Error('Error getting Data')
+      }
+      setPokemonData(jsonData)
+      setIsDataLoading(false)
+      return
+    })
+    .catch((e) => {
+      setIsDataLoading(false)
+      setPokemonData(null);
+      setAppError({
+        errorMessage: e.message
       })
-        .then((jsonData) => {
-          if(!jsonData.hasOwnProperty('abilities')){
-            throw new Error('Error getting Data')
-          }
-          setPokemonData(jsonData)
-          setIsDataLoading(false)
-          return
-        })
-      .catch((e) => {
-        setIsDataLoading(false)
-        setPokemonData(null);
-        setAppError({
-          errorMessage: e.message
-        })
-      })
-        return (() => {
-          setPokemonData(null)
-          setIsDataLoading(true);
-          setAppError(null);
-        })
+    })
+
+    return (() => {
+      setPokemonData(null)
+      setIsDataLoading(true);
+      setAppError(null);
+    })
   }, [query])
   
 

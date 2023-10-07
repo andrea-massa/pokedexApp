@@ -1,6 +1,6 @@
-import "./Error.css"
+import "./AppError.css"
 
-function Error(props){
+function AppError(props){
     return(
         <div className="container error-container">
             <div className="error">
@@ -11,4 +11,4 @@ function Error(props){
     )    
 }
 
-export default Error
+export default AppError
