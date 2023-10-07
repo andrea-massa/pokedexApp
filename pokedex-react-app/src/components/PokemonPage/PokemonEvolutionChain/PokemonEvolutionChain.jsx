@@ -15,6 +15,7 @@ function PokemonEvolutionChain(props){
             if(!response.ok){
                 throw new Error('Error getting evolution data for this pokemon')
             }
+
             response.json()
             .then((jsonData) => {
                 if(!jsonData.hasOwnProperty('chain')){
@@ -33,6 +34,19 @@ function PokemonEvolutionChain(props){
                     })
                     if(jsonData.chain.evolves_to[0].evolves_to.length > 0){
                         setEvolutionData((prevValue) =>{
+                            if(jsonData.chain.evolves_to.length > 1){
+                                console.log(prevValue.firstStage)
+                                let forms = []
+                                for(let i = 0; i < jsonData.chain.evolves_to.length; i++){
+                                    forms.push(jsonData.chain.evolves_to[i].evolves_to[0])
+                                }
+                                console.log(forms)
+                                return({
+                                    firstStage: prevValue.firstStage, 
+                                    secondStage: prevValue.secondStage, 
+                                    thirdStage: forms
+                                })
+                            }
                             return ({
                                 firstStage: prevValue.firstStage, 
                                 secondStage: prevValue.secondStage, 

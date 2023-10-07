@@ -4,7 +4,7 @@ import PokemonEvolutionForm from "./PokemonForm/PokemonEvolutionForm"
 
 function PokemonEvolutionNode(props){
     return(        
-        <li className=" pokemon-evolution-node">
+        <li className="pokemon-evolution-node">
             {props.nodeData.length < 2
             ?
             (
