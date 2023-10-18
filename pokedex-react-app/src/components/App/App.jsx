@@ -13,7 +13,7 @@ import '../../../public/fonts.css'
 
 
 
-// COMPONENT
+// ROOT COMPONENT
 function App() {  
   // STATES
   let [pokemonData, setPokemonData] = useState({})

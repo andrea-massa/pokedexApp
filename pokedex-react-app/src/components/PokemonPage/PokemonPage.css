@@ -10,6 +10,6 @@
     .pokemon-page .body-container{
         margin-top: 20px;
     }
-    .pokemon-page > div, .image-container{
-        border: solid white;
-    }
+        .pokemon-page > div, .image-container{
+            border: solid white;
+        }

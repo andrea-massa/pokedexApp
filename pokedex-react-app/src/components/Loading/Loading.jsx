@@ -7,7 +7,7 @@ import "./Loading.css"
 
 
 
-// COMPONENT
+// COMPONENT -> Displays Loading Animation for User
 function Loading(){
     // JSX
     return(

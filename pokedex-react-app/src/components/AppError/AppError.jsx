@@ -4,7 +4,7 @@ import "./AppError.css"
 
 
 
-// COMPONENT
+// COMPONENT -> Displays Error For User
 function AppError(props){
     // JSX
     return(
