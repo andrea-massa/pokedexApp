@@ -1,13 +1,13 @@
 // IMPORTS
-// Hooks Used
+// Hooks
 import { useEffect, useState } from 'react'
 
-// Components Used
+// Components
 import Loading from '../Loading/Loading'
 import AppError from '../AppError/AppError'
 import PokemonPage from '../PokemonPage/PokemonPage'
 
-// Styles Used
+// Styles
 import './App.css'
 import '../../../public/fonts.css'
 
@@ -91,5 +91,7 @@ function App() {
     </div>
   )
 }
+
+
 
 export default App
