@@ -1,14 +1,14 @@
-.error-container{
+.app-error{
     text-align: center;
     border: solid white;
     height: 100vh;
     color: white;
 }
-.error{
-    border: solid black;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+    .error{
+        border: solid black;
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }

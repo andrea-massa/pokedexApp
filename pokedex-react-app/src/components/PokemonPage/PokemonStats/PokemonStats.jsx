@@ -1,8 +1,16 @@
-import "./PokemonStats.css"
+// IMPORTS
+// Components
 import Stat from "./Stat/Stat"
 import TotalStat from "./TotalStat/TotalStat"
 
+// Styles
+import "./PokemonStats.css"
+
+
+
+// COMPONENT
 function PokemonStats(props){
+    // Utility function to calculate the total stat based on given stat props
     function calculateTotalStat(stats){
         let total = 0
         for(let stat of stats){
@@ -11,11 +19,18 @@ function PokemonStats(props){
         return total;
     }
 
+
+    // JSX
     return(
         <div className="row pokemon-stats-wrapper">
-            <TotalStat
-                value={calculateTotalStat(props.stats)}/>
-            <ul className="col-9 pokemon-stats">
+
+            {/* Render Total Stat Component using the calculate total stat function
+                to determine the total
+            */}
+            <TotalStat value={calculateTotalStat(props.stats)}/>
+
+            {/* Render a list with each stat */}
+            <ul className="col-9 pokemon-stats">                
                 {props.stats.map((stat, index) => {                
                     return(
                         <Stat                    
@@ -25,8 +40,11 @@ function PokemonStats(props){
                     )
                 })}
             </ul>
+
         </div>
     )
 }
+
+
 
 export default PokemonStats

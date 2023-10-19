@@ -1,10 +1,16 @@
+// IMPORTS
+// Styles
 import "./PokemonImage.css"
 import "../../../../public/colors.css"
 
+
+
+// COMPONENT -> Renders a Pokemon Image Given the data and pokemon type in order to determine color
 function PokemonImage(props){
+    // UTILS
     // Function that gets colors needed for the background of the pokemon image
     // based on the type(s) of the pokemon
-    const getColors = () => {        
+    function getColors(){        
         let colorsArr = [];
         for (let type of props.types){
             let typeIdentifier = type.type.name;            
@@ -12,9 +18,10 @@ function PokemonImage(props){
         }      
         return colorsArr
     }
-    
     const colorsArr = getColors();
 
+    
+    // JSX
     return(
         <div 
             className={`${props.isEvolutionImage ? 'evolution-form-image' : 'pokemon-image'}`} 
@@ -35,5 +42,7 @@ function PokemonImage(props){
         </div>
     )
 }
+
+
 
 export default PokemonImage

@@ -1,7 +1,15 @@
+// IMPORTS
+// Hooks
 import { useState } from "react"
+
+// Styles
 import "./Loading.css"
 
+
+
+// COMPONENT -> Displays Loading Animation for User
 function Loading(){
+    // JSX
     return(
         <div className="loading">
             <div className="pokeball">
@@ -10,5 +18,7 @@ function Loading(){
         </div>
     )
 }
+
+
 
 export default Loading
