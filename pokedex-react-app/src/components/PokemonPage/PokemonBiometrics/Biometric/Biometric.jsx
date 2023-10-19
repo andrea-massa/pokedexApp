@@ -1,6 +1,12 @@
+// IMPORTS
+// Styles
 import "./Biometric.css"
 
+
+
+// COMPONENT
 function Biometric(props){
+    // JSX
     return(
         <div className={`biometric ${props.name}`}>
             <h4 className="biometric-name">{props.name}</h4>
@@ -18,4 +24,7 @@ function Biometric(props){
         </div>
     )
 }
+
+
+
 export default Biometric

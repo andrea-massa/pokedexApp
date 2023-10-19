@@ -1,8 +1,14 @@
+// IMPORTS
+// Styles
 import "./Stat.css"
 
+
+
+// COMPONENT
 function Stat(props){
 
-
+    // Utility Function shortening the stat name given the long version
+    // from the API
     function shortenStatName(statName){
         switch(statName){
             case 'hp':
@@ -28,6 +34,7 @@ function Stat(props){
         }
     }
 
+    // Utility function fetting the stats background color based on the stat name
     function getStatBackgroundColor(statName){
         switch(statName){
             case 'hp':
@@ -53,6 +60,8 @@ function Stat(props){
         }
     }
 
+
+    // JSX
     return(
         <li className={`row stat ${props.name}-stat`}>
             <span 
@@ -67,5 +76,7 @@ function Stat(props){
         </li>
     )
 }
+
+
 
 export default Stat

@@ -1,15 +1,21 @@
+// IMPORT
+// Styles
 import "./Type.css"
 
-function Type(props){
 
+
+// COMPONENT
+function Type(props){
+    //JSX 
     return(
         <li 
             className="my-1 pokemon-type"
-            style={{backgroundColor: `var(--${props.value}Color)`}}
-            >
-                {props.value}
+            style={{backgroundColor: `var(--${props.value}Color)`}}>
+            {props.value}
         </li>
     )
 }
+
+
 
 export default Type
