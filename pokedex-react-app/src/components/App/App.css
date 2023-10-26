@@ -1,11 +1,11 @@
-@media screen and (min-width: 768px){
+@media screen and (min-width: 992px){
     .app{
         height: 100vh;
         background: linear-gradient(180deg, #E40E0E 0%, #3A0E0E 50%, #FFF 100%);
     }
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 992px){
     .app{
         background: linear-gradient(180deg, #E40E0E 0%, #3A0E0E 85%, #FFF 100%);
     }

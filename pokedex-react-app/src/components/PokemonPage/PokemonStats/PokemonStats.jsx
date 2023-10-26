@@ -22,7 +22,7 @@ function PokemonStats(props){
 
     // JSX
     return(
-        <div className="row pokemon-stats-wrapper">
+        <div className="row border ms-lg-5 pokemon-stats-wrapper">
 
             {/* Render Total Stat Component using the calculate total stat function
                 to determine the total
@@ -30,7 +30,7 @@ function PokemonStats(props){
             <TotalStat value={calculateTotalStat(props.stats)}/>
 
             {/* Render a list with each stat */}
-            <ul className="col-9 pokemon-stats">                
+            <ul className="col pokemon-stats">                
                 {props.stats.map((stat, index) => {                
                     return(
                         <Stat                    

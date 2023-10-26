@@ -67,7 +67,7 @@ function App() {
 
   // JSX
   return (
-    <div className='app container-fluid'>
+    <div className='app border container-fluid'>
       <div className='controls'>
         <input type="text" value={input} onChange={(e) => {
           setInput(e.target.value)

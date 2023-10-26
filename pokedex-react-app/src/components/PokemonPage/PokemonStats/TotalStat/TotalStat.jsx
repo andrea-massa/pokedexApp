@@ -8,7 +8,7 @@ import "./TotalStat.css"
 function TotalStat(props){
     // JSX
     return(
-        <div className="col-3 total-stat">
+        <div className="col-2 total-stat">
             <h3>Total</h3>
             <div                
                 className="total-stat-value"
