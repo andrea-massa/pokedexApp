@@ -41,18 +41,18 @@ function PokemonPage({pokemonData}){
                             types={pokemonData.types}/>
                 </div>
                 <div className="row">
-                    <div className="mt-3 col col-lg-8 description-container">
+                    <div className="col col-lg-8 description-container">
                         <PokemonTypes types={pokemonData.types}/>
                         <PokemonDescription 
                             id={pokemonData.id}
                             evolutionChainCallback={(endpoint) => {
                                 setEvolutionChainEndpoint(endpoint)
                             }}/>
-                        <PokemonAbilities
-                            abilities={pokemonData.abilities}/>
                         <PokemonBiometrics 
                             weight={pokemonData.weight}
                             height={pokemonData.height}/>                    
+                        <PokemonAbilities
+                            abilities={pokemonData.abilities}/>
                     </div>
                     <div className="d-none d-lg-block col-lg-4 image-container">
                         <PokemonImage 

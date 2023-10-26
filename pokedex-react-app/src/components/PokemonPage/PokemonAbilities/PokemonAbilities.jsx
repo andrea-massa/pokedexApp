@@ -11,7 +11,7 @@ import "./PokemonAbilities.css"
 function PokemonAbilities(props){
     // JSX
     return(
-        <div className="col col-md-11 pokemon-abilities">
+        <div className="mt-5 col col-md-11 pokemon-abilities">
 
             <h3>Abilities</h3>
             

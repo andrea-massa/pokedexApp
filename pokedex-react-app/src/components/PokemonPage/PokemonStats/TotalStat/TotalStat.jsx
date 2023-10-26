@@ -9,7 +9,7 @@ function TotalStat(props){
     // JSX
     return(
         <div className="col-2 total-stat">
-            <h3>Total</h3>
+            <h4>Total</h4>
             <div                
                 className="total-stat-value"
                 style={{height: `${props.value / 2}px`}}>
