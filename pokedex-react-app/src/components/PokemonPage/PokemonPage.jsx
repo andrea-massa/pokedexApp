@@ -25,7 +25,7 @@ function PokemonPage({pokemonData}){
 
     // JSX
     return(
-        <div className="border container-fluid pokemon-page">
+        <div className="container-fluid pokemon-page">
 
             <div className="container header-container">
                 <PokemonTitle 
