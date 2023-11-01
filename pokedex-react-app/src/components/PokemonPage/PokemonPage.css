@@ -1,7 +1,7 @@
 .pokemon-page{
     border: solid black;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
     margin-top: 50px;
 }
     .pokemon-page .header-container{

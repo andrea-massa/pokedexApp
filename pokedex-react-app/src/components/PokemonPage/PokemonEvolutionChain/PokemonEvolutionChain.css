@@ -2,6 +2,13 @@
     border: solid yellow;
     margin-top: 20px;
 }
+    .pokemon-evolution-chain h3{
+        color: white;
+        font-family: var(--sans-font);
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+    }
     .evolution-nodes{
         list-style: none;
         margin: 0;

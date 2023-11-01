@@ -1,5 +1,8 @@
 .pokemon-evolution-form{
-    border: solid black;    
+    border: solid #000000;    
+}
+.pokemon-evolution-form:nth-child(1){
+    margin-top: 40px;
 }
     .form-name{
         text-align: center;

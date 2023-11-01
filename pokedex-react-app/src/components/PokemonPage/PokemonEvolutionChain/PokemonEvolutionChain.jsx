@@ -95,6 +95,7 @@ function PokemonEvolutionChain(props){
     // JSX
     return (        
         <div className="pokemon-evolution-chain">
+            <h3 className="text-center text-lg-start">Evolution Chain</h3>
             {/* Display if there are errors in the App */}
             {appError !== null && <AppError errorTxt={appError.errorMessage}/>}
 
@@ -108,7 +109,9 @@ function PokemonEvolutionChain(props){
                     return (
                         <PokemonEvolutionNode
                             key={index}
-                            nodeData={evolutionData[key]}/>
+                            nodeOrder={index+1}
+                            nodeData={evolutionData[key]}
+                            />
                     )
                 })}
             </ul>}

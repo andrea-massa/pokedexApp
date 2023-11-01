@@ -25,7 +25,7 @@ function PokemonPage({pokemonData}){
 
     // JSX
     return(
-        <div className="border container-fluid pokemon-page">
+        <div className="container-fluid pokemon-page">
 
             <div className="container header-container">
                 <PokemonTitle 
@@ -34,38 +34,38 @@ function PokemonPage({pokemonData}){
             </div>
 
             <div className="container body-container">
-                <div className="d-md-none image-container">
+                <div className="d-lg-none image-container">
                     <PokemonImage 
                             img={pokemonData.sprites.other.home.front_default || pokemonData.sprites.front_default} 
                             pokemonName={pokemonData.name}
                             types={pokemonData.types}/>
                 </div>
                 <div className="row">
-                    <div className="col col-md-8 description-container">
+                    <div className="col col-lg-8 description-container">
                         <PokemonTypes types={pokemonData.types}/>
                         <PokemonDescription 
                             id={pokemonData.id}
                             evolutionChainCallback={(endpoint) => {
                                 setEvolutionChainEndpoint(endpoint)
                             }}/>
-                        <PokemonAbilities
-                            abilities={pokemonData.abilities}/>
                         <PokemonBiometrics 
                             weight={pokemonData.weight}
                             height={pokemonData.height}/>                    
+                        <PokemonAbilities
+                            abilities={pokemonData.abilities}/>
                     </div>
-                    <div className="d-none d-md-block col-md-4 image-container">
+                    <div className="d-none d-lg-block col-lg-4 image-container">
                         <PokemonImage 
                             img={pokemonData.sprites.other.home.front_default || pokemonData.sprites.front_default} 
                             pokemonName={pokemonData.name}
                             types={pokemonData.types}/>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-12 col-md-8 evolution-container">
+                <div className="d-flex flex-column-reverse flex-lg-row row ">
+                    <div className="col-12 col-lg-7 mt-5 evolution-container">
                         <PokemonEvolutionChain endpoint={evolutionChainEndpoint}/>
                     </div>
-                    <div className="col-12 col-md-4 stats-container">
+                    <div className="col-12 col-lg-5 mt-5 stats-container">
                         <PokemonStats stats={pokemonData.stats}/>                    
                     </div>
                 </div>
