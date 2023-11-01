@@ -110,7 +110,8 @@ function PokemonEvolutionChain(props){
                         <PokemonEvolutionNode
                             key={index}
                             nodeOrder={index+1}
-                            nodeData={evolutionData[key]}/>
+                            nodeData={evolutionData[key]}
+                            />
                     )
                 })}
             </ul>}

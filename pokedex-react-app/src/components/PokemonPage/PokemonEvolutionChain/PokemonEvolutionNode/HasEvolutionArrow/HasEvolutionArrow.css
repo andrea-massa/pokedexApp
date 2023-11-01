@@ -1,0 +1,9 @@
+.arrow-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .arrow-container > *{
+        color: white;
+        font-size: 40px;
+    }   
