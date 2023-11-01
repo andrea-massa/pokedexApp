@@ -1,6 +1,7 @@
-.pokemon-evolution-node{
-    border: solid black;
-    margin-right: 20px;
+.pokemon-evolution-node{ 
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
 }
         .multi-form .form-list{
             list-style: none;

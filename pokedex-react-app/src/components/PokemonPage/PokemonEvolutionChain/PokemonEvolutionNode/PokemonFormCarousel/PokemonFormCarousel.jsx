@@ -1,5 +1,10 @@
 // IMPORTS
+// Components
 import PokemonEvolutionForm from "../PokemonForm/PokemonEvolutionForm"
+
+// Styles
+import "./PokemonFormCarousel.css"
+
 
 
 // COMPONENT

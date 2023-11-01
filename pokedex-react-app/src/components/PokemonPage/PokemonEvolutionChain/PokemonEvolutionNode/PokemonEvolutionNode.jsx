@@ -12,7 +12,7 @@ import "./PokemonEvolutionNode.css"
 function PokemonEvolutionNode(props){    
     // JSX
     return(        
-        <li className="pokemon-evolution-node">            
+        <li className="pokemon-evolution-node mx-auto mx-lg-4">            
             {props.nodeData.length < 2
             ?
 

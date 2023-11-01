@@ -57,7 +57,7 @@ function PokemonEvolutionForm(props){
     
     // JSX
     return(
-        <div className="d-lg-flex flex-row">
+        <div className="d-lg-flex flex-column">
 
             {/* Render error if any */}
             {appError !== null && <AppError errorTxt={appError.errorMessage}/>}
@@ -67,7 +67,7 @@ function PokemonEvolutionForm(props){
 
             {/* Display this pokemon's form data */}
             <div className="pokemon-evolution-form">
-                <div className="form-image-container">       
+                <div className="form-image-container">               
                     {isLoading 
                     ? 
                     <Loading/>
@@ -79,7 +79,7 @@ function PokemonEvolutionForm(props){
                         types={formImageData.types}/>                       
                     }
                 </div>
-                <p className="form-name">{props.pokemonData.name}</p>
+                <p className="form-name">{props.pokemonData.name}</p>                
             </div>
         </div>
     )
