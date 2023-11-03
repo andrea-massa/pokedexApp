@@ -10,3 +10,14 @@
         background: linear-gradient(180deg, #E40E0E 0%, #3A0E0E 85%, #d3d3d3 100%);
     }
 }
+
+.arrows-ui{
+    border: solid black !important;
+    z-index: 3;
+    position: sticky;
+    top: 50vh;
+    left: 5%;
+    display: flex;
+    width: 100%;    ;        
+    justify-content: space-between;
+}
