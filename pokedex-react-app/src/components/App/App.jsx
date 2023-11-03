@@ -78,7 +78,7 @@ function App() {
   return (
     <div className='app container-fluid'>      
       
-      <div className='arrows-ui'>
+      <div className='px-0 px-xxl-5 arrows-ui'>
         <Arrow
           onClick={getPreviousPokemon}
           type="prev"

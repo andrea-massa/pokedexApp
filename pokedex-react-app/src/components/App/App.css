@@ -12,12 +12,11 @@
 }
 
 .arrows-ui{
-    border: solid black !important;
     z-index: 3;
     position: sticky;
     top: 50vh;
     left: 5%;
     display: flex;
-    width: 100%;    ;        
+    width: 90%;
     justify-content: space-between;
 }
