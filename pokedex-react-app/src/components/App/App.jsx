@@ -64,7 +64,7 @@ function App() {
     })
   }, [query])
   
-  
+  // This function changes the query based on the input received from pokemonName
   function changeQuery(pokemonName){
     setQuery(pokemonName)
   }
