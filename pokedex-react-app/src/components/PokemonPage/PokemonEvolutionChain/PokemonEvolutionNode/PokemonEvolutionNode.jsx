@@ -25,8 +25,8 @@ function PokemonEvolutionNode(props){
                     <div className="single-form">                    
                         <PokemonEvolutionForm
                             evolutionData={props.nodeData[0].evolution_details}
-                            pokemonData={props.nodeData[0].species}                         
-                            />                                        
+                            pokemonData={props.nodeData[0].species}   
+                            changePokemon={props.changePokemon}/>                                        
                     </div>
                 )
                 :
@@ -38,7 +38,8 @@ function PokemonEvolutionNode(props){
                         <div className="d-flex flex-row flex-lg-column flex-wrap form-list">
                             <PokemonFormCarousel
                                 stage={props.nodeOrder}                            
-                                formsData={props.nodeData}/>
+                                formsData={props.nodeData}
+                                changePokemon={props.changePokemon}/>
                         </div>                    
                     </div>
                 )
