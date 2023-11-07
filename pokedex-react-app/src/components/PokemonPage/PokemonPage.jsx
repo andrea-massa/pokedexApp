@@ -18,7 +18,7 @@ import "./PokemonPage.css"
 
 
 // COMPONENT -> Renders Everything Associated with the Pokemon Data
-function PokemonPage({pokemonData}){      
+function PokemonPage(props){      
     // STATES
     const [evolutionChainEndpoint, setEvolutionChainEndpoint] = useState('');    
 
@@ -29,44 +29,46 @@ function PokemonPage({pokemonData}){
 
             <div className="container header-container">
                 <PokemonTitle 
-                    entryNumber={pokemonData.id} 
-                    entryName={pokemonData.name}/>
+                    entryNumber={props.pokemonData.id} 
+                    entryName={props.pokemonData.name}/>
             </div>
 
             <div className="container body-container">
                 <div className="d-lg-none image-container">
                     <PokemonImage 
-                            img={pokemonData.sprites.other.home.front_default || pokemonData.sprites.front_default} 
-                            pokemonName={pokemonData.name}
-                            types={pokemonData.types}/>
+                            img={props.pokemonData.sprites.other.home.front_default || props.pokemonData.sprites.front_default} 
+                            pokemonName={props.pokemonData.name}
+                            types={props.pokemonData.types}/>
                 </div>
                 <div className="row">
                     <div className="col col-lg-8 description-container">
-                        <PokemonTypes types={pokemonData.types}/>
+                        <PokemonTypes types={props.pokemonData.types}/>
                         <PokemonDescription 
-                            id={pokemonData.id}
+                            id={props.pokemonData.id}
                             evolutionChainCallback={(endpoint) => {
                                 setEvolutionChainEndpoint(endpoint)
                             }}/>
                         <PokemonBiometrics 
-                            weight={pokemonData.weight}
-                            height={pokemonData.height}/>                    
+                            weight={props.pokemonData.weight}
+                            height={props.pokemonData.height}/>                    
                         <PokemonAbilities
-                            abilities={pokemonData.abilities}/>
+                            abilities={props.pokemonData.abilities}/>
                     </div>
                     <div className="d-none d-lg-block col-lg-4 image-container">
                         <PokemonImage 
-                            img={pokemonData.sprites.other.home.front_default || pokemonData.sprites.front_default} 
-                            pokemonName={pokemonData.name}
-                            types={pokemonData.types}/>
+                            img={props.pokemonData.sprites.other.home.front_default || props.pokemonData.sprites.front_default} 
+                            pokemonName={props.pokemonData.name}
+                            types={props.pokemonData.types}/>
                     </div>
                 </div>
                 <div className="d-flex flex-column-reverse flex-lg-row row ">
                     <div className="col-12 col-lg-7 mt-5 evolution-container">
-                        <PokemonEvolutionChain endpoint={evolutionChainEndpoint}/>
+                        <PokemonEvolutionChain 
+                            endpoint={evolutionChainEndpoint}
+                            changePokemon={props.changePokemon}/>
                     </div>
                     <div className="col-12 col-lg-5 mt-5 stats-container">
-                        <PokemonStats stats={pokemonData.stats}/>                    
+                        <PokemonStats stats={props.pokemonData.stats}/>                    
                     </div>
                 </div>
             </div>

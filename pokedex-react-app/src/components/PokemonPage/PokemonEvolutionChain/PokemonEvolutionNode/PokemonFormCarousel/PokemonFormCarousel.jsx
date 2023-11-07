@@ -25,7 +25,8 @@ function PokemonFormCarousel(props){
                         <div key={index} className={`carousel-item ${index === 0 ? "active" : "not-active"}`}>
                             <PokemonEvolutionForm
                                 evolutionData={form.evolution_details}
-                                pokemonData={form.species} />
+                                pokemonData={form.species} 
+                                changePokemon={props.changePokemon}/>
                         </div>
                     )
                 })}

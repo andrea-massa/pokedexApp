@@ -66,7 +66,9 @@ function PokemonEvolutionForm(props){
             {props.evolutionData.length > 0 && <PokemonEvolutionTrigger triggerName={props.evolutionData[0].trigger.name}/> }
 
             {/* Display this pokemon's form data */}
-            <div className="pokemon-evolution-form">
+            <div className="pokemon-evolution-form" onClick={(e) => {
+                props.changePokemon(props.pokemonData.name);
+            }}>
                 <div className="form-image-container">               
                     {isLoading 
                     ? 

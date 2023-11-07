@@ -111,6 +111,7 @@ function PokemonEvolutionChain(props){
                             key={index}
                             nodeOrder={index+1}
                             nodeData={evolutionData[key]}
+                            changePokemon={props.changePokemon}
                             />
                     )
                 })}

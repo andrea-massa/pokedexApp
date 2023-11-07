@@ -20,7 +20,6 @@ function App() {
   let [pokemonData, setPokemonData] = useState({})
   let [isDataLoading, setIsDataLoading] = useState(true);
   let [appError, setAppError] = useState(null)
-  let [input, setInput] = useState('');
   let [query, setQuery] = useState('ditto')
 
 
@@ -65,6 +64,10 @@ function App() {
     })
   }, [query])
   
+  
+  function changeQuery(pokemonName){
+    setQuery(pokemonName)
+  }
 
   function getNextPokemon(){
     setQuery(pokemonData.id + 1)
@@ -97,8 +100,9 @@ function App() {
 
       {/* Renders pokemon page if pokemon data is present and not loading state */}
       {pokemonData !== null && !isDataLoading && 
-        <PokemonPage pokemonData = {pokemonData}/>
-
+        <PokemonPage 
+          pokemonData = {pokemonData}
+          changePokemon = {changeQuery}/>
       }
     </div>
   )
