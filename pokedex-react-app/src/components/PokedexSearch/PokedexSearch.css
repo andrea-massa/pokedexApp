@@ -1,0 +1,9 @@
+.arrows-ui{
+    z-index: 3;
+    position: sticky;
+    top: 50vh;
+    left: 5%;
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+}
