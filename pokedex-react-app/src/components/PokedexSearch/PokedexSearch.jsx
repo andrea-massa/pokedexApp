@@ -5,7 +5,7 @@ import Loading from '../Loading/Loading'
 import AppError from '../AppError/AppError'
 import PokemonPage from '../PokemonPage/PokemonPage'
 import Arrow from "../PokemonPage/Arrow/Arrow"
-import SearchBar from "./SearchUI/SearchBar"
+import SearchBar from "./SearchBar/SearchBar"
 
 
 function PokedexSearch(){

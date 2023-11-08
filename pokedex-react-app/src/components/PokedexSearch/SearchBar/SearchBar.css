@@ -1,0 +1,31 @@
+.search-bar-container{
+    border: solid black;  
+    z-index: 3;
+    position: sticky;
+    top: 30px;    
+    display: flex;
+    justify-content: right;    
+}
+    .search-bar.collapsed{
+        border: solid black;
+        width: 100px;        
+        transition: all 0.5s;
+    }
+    .search-bar.collapsed :hover{
+        cursor: pointer;
+        transform: translateX(-5px);
+        transition: all 0.3s;
+    }
+    .search-bar.expanded{
+        border: solid white;
+        transition: all 0.5s;
+        margin: 0px auto;
+    }
+    
+    
+    
+    
+.search-icon{    
+    color: #B3A7FF;            
+    font-size: 100px;
+}

@@ -1,4 +1,7 @@
 import { useState } from "react"
+import { IoSearchCircle } from "react-icons/io5"
+
+import "./SearchBar.css"
 
 
 
@@ -12,11 +15,11 @@ function SearchBar(props){
 
     // JSX
     return(
-        <div className="search-ui">
+        <div className="container-fluid search-bar-container">
 
             {/* Search Bar Expanded State */}
             {isBarExpanded ?
-            <div className="search-bar expanded">
+            <div className="col-12 col-lg-8 search-bar expanded">
                 <input 
                     class="form-control form-control-lg" 
                     type="text" 
@@ -40,13 +43,14 @@ function SearchBar(props){
 
             :
             
-            // Search Bar Not Expanded State
-            <div className="search-bar">
-                <div 
+            // Search Bar Collpsed State
+            <div className="col-12 me-lg-5 search-bar collapsed">
+                <IoSearchCircle 
                     className="search-icon" 
-                    onClick={() => {setIsBarExpanded(true)}}>
-                    Search
-                </div>
+                    onClick={() => {
+                        window.scrollTo(0, 0);
+                        setIsBarExpanded(true)
+                    }}/>                    
             </div>
             }            
 
