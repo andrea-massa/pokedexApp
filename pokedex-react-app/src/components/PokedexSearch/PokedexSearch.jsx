@@ -5,7 +5,7 @@ import Loading from '../Loading/Loading'
 import AppError from '../AppError/AppError'
 import PokemonPage from '../PokemonPage/PokemonPage'
 import Arrow from "../PokemonPage/Arrow/Arrow"
-
+import SearchBar from "./SearchUI/SearchBar"
 
 
 function PokedexSearch(){
@@ -14,7 +14,7 @@ function PokedexSearch(){
     let [isDataLoading, setIsDataLoading] = useState(true);
     let [appError, setAppError] = useState(null)
     let [query, setQuery] = useState('ditto')
-
+    let [searchBarInput, setSearchBarInput] = useState('');
 
     // USE-EFFECT
     useEffect(()=>{
@@ -77,8 +77,12 @@ function PokedexSearch(){
 
   // JSX
   return (
-    <div className='pokedex-search container-fluid'>      
+    <div className='pokedex-search container-fluid border'>      
       
+      <SearchBar
+        onSubmit={changeQuery}
+      />
+
       <div className='px-0 px-xxl-5 arrows-ui'>
         <Arrow
           onClick={getPreviousPokemon}
@@ -102,6 +106,7 @@ function PokedexSearch(){
           pokemonData = {pokemonData}
           changePokemon = {changeQuery}/>
       }
+
     </div>
   )
 }
