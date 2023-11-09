@@ -77,13 +77,13 @@ function PokedexSearch(){
 
   // JSX
   return (
-    <div className='pokedex-search container-fluid border'>      
+    <div className='pokedex-search container-fluid'>      
       
       <SearchBar
         onSubmit={changeQuery}
       />
 
-      <div className='px-0 px-xxl-5 arrows-ui'>
+      <div className='arrows-ui'>
         <Arrow
           onClick={getPreviousPokemon}
           type="prev"

@@ -1,7 +1,6 @@
 .pokemon-page{
-    border: solid black;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;  
 }
     .pokemon-page .header-container{
         margin-top: 10px;
@@ -9,6 +8,3 @@
     .pokemon-page .body-container{
         margin-top: 20px;
     }
-        .pokemon-page > div, .image-container{
-            border: solid white;
-        }

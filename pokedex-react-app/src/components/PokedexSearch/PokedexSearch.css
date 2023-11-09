@@ -1,9 +1,12 @@
+.pokedex-search{
+    height: 100vh;
+}
 .arrows-ui{
     z-index: 3;
     position: sticky;
     top: 50vh;
-    left: 5%;
+    left: 10%;
     display: flex;
-    width: 90%;
+    width: 100%;
     justify-content: space-between;
 }
