@@ -1,6 +1,5 @@
 @media screen and (min-width: 992px){
     .app{
-        height: 100vh;
         background: linear-gradient(180deg, #E40E0E 0%, #3A0E0E 50%, #d3d3d3 100%);
     }
 }
@@ -11,12 +10,3 @@
     }
 }
 
-.arrows-ui{
-    z-index: 3;
-    position: sticky;
-    top: 50vh;
-    left: 5%;
-    display: flex;
-    width: 90%;
-    justify-content: space-between;
-}
