@@ -1,0 +1,8 @@
+.pokemon-types{
+    margin-top: 20px;
+}
+    .pokemon-types-list{
+        list-style: none;
+        margin: 0px;    
+        padding: 0px;
+    }

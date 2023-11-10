@@ -1,0 +1,12 @@
+.ability{
+    width: 50%;    
+    margin: 5px 0px 5px 0px;
+    color: white;
+    font-family: var(--mono-font);
+    font-size: 15px;
+    text-transform: uppercase;
+}
+    .ability .isHidden{
+        font-size: 25px;
+        margin-right: 10px;
+    }

@@ -1,0 +1,18 @@
+.stat{
+    color: white;
+    font-family: var(--mono-font);
+    margin-bottom: 10px;
+}
+    .stat .stat-name{                
+        padding: 0px;
+        margin-right: 10px;           
+        font-size: 16px;
+        text-align: right;
+        text-transform: uppercase;
+    }
+    .stat .stat-value{                    
+        border-radius: 5px 15px 15px 5px;
+        display: inline-block;                
+        font-size: 14px;        
+        text-align: center;        
+    }

@@ -1,0 +1,58 @@
+.loading {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateZ(1px);
+  }
+  .loading > .pokeball {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 8px;
+    border-radius: 50%;    
+    background: linear-gradient(to bottom, red 50%, black 55%, white 60%);
+    animation: loading 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  }
+  .loading-text{
+    color: white;
+    font-family: var(--sans-font);
+    animation: pop 1s linear infinite;
+  }
+
+
+  /* Loading animation */
+  @keyframes loading {
+    0%, 100% {
+      animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+    }
+    0% {
+      transform: rotateZ(0deg);
+    }
+    50% {
+      transform: rotateZ(1800deg);
+      animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+    }
+    100% {
+      transform: rotateZ(3600deg);
+    }
+  }
+  @keyframes pop {
+    0% {
+        transform: translateX(-100px) scale(1);; 
+    }
+    25%{
+        transform: translateX(-50px) scale(1.5);
+    }
+    50% {
+        transform: translateX(0px) scale(1);
+    }
+    75% {
+        transform: translateX(50px) scale(1.5);
+    }
+    100% {
+        transform: translateX(100px) scale(1);
+    }
+  }
+  

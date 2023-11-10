@@ -1,0 +1,10 @@
+.pokemon-evolution-node{ 
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+}
+        .multi-form .form-list{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }        

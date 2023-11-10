@@ -1,0 +1,18 @@
+.pokemon-abilities{
+    margin-top: 20px;
+}
+    .pokemon-abilities h3{
+        color: white;
+        font-family: var(--sans-font);
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+    }
+    .abilties-list{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }

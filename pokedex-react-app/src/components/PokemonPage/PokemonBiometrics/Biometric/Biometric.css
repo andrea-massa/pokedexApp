@@ -1,0 +1,14 @@
+.biometric{
+    margin: auto;
+    text-transform: uppercase;
+    color: #fff;
+}
+    .biometric-name{
+        font-family: var(--sans-font);
+        font-size: 20px;        
+    }
+    .biometric-value{
+        text-align: center;
+        font-family: var(--mono-font);
+        font-size: 12px;
+    }

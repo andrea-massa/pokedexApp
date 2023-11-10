@@ -1,0 +1,9 @@
+.pokemon-evolution-trigger{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    text-transform: capitalize;
+    font-family: var(--mono-font);
+}

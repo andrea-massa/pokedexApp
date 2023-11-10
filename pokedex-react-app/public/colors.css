@@ -1,0 +1,20 @@
+:root{
+    --normalColor: #A8A77A;
+    --fireColor: #EE8130;
+    --waterColor: #6390F0;
+    --electricColor: #F7D02C;
+    --grassColor: #7AC74C;
+    --iceColor: #96D9D6;
+    --fightingColor: #C22E28;
+    --poisonColor: #A33EA1;
+    --groundColor: #E2BF65;
+    --flyingColor: #A98FF3;
+    --psychicColor: #F95587;
+    --bugColor: #a6b91a;
+    --rockColor: #B6A136;
+    --ghostColor: #735797;
+    --dragonColor: #6F35FC;
+    --darkColor: #705746;
+    --steelColor: #B7B7CE;
+    --fairyColor: #D685AD;
+}

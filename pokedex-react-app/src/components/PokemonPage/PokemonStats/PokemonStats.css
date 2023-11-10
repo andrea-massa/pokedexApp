@@ -1,0 +1,16 @@
+.pokemon-stats-wrapper{
+    margin-top: 20px;  
+}
+    .pokemon-stats-wrapper h3{
+        color: white;
+        font-family: var(--sans-font);
+        font-size: 20px;
+        text-transform: uppercase;
+        margin-bottom: 20px;        
+    }
+    .pokemon-stats{                
+        list-style: none;
+        margin: 0px;
+        margin-top: auto;
+        padding: 0px;    
+    }
