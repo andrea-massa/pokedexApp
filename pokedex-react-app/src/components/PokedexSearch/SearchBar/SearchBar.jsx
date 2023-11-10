@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { IoSearchCircle } from "react-icons/io5"
+import { IoSearchCircle, IoSearchOutline } from "react-icons/io5"
 
 import "./SearchBar.css"
 
@@ -10,7 +10,6 @@ function SearchBar(props){
     // State
     const [isBarExpanded, setIsBarExpanded] = useState(false)    
     const [currentSearchBarValue, setCurrentSearchBarValue] = useState('')
-    console.log(currentSearchBarValue)
 
 
     // JSX
@@ -19,7 +18,7 @@ function SearchBar(props){
 
             {/* Search Bar Expanded State */}
             {isBarExpanded ?
-            <div className="col-12 col-lg-8 search-bar expanded">
+            <div className="col-12 col-lg-6 search-bar expanded">
                 <input 
                     class="form-control form-control-lg" 
                     type="text" 
@@ -28,24 +27,23 @@ function SearchBar(props){
                     value={currentSearchBarValue}
                     onChange={(e) => {setCurrentSearchBarValue(e.target.value)}}/> 
                 <button 
-                    type="button" 
-                    class="btn btn-primary"
+                    className="btn btn-primary search-button"
                     onClick={(e) => {
-                        props.onSubmit(currentSearchBarValue)
-                        console.log('hitting')
+                        props.onSubmit(currentSearchBarValue.toLowerCase())
                         setCurrentSearchBarValue('')
-                    }}
-                    >                    
-                    Search
-                </button>                
-                <a onClick={()=> {setIsBarExpanded(false)}}>Close</a>
+                        setIsBarExpanded(false)
+                    }}>
+                    <IoSearchOutline
+                        className="search-icon"
+                    />
+                </button>                                                      
             </div>
 
             :
             
-            // Search Bar Collpsed State
-            <div className="col-12 me-lg-5 search-bar collapsed">
-                <IoSearchCircle 
+            // Search Bar Collapsed State
+            <div className="me-lg-5 border search-bar collapsed">
+                <IoSearchOutline 
                     className="search-icon" 
                     onClick={() => {
                         window.scrollTo(0, 0);

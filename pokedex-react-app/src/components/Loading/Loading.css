@@ -1,5 +1,4 @@
 .loading {
-    border: solid black;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -12,8 +11,7 @@
     width: 100px;
     height: 100px;
     margin: 8px;
-    border-radius: 50%;
-    border: solid black;
+    border-radius: 50%;    
     background: linear-gradient(to bottom, red 50%, black 55%, white 60%);
     animation: loading 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
   }

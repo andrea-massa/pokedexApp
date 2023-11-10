@@ -1,8 +1,6 @@
 .stat{
     color: white;
     font-family: var(--mono-font);
-    margin-bottom: 10px;
-    border: solid black;    
 }
     .stat .stat-name{                
         padding: 0px;
