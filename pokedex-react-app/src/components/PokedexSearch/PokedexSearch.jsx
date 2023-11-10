@@ -77,7 +77,7 @@ function PokedexSearch(){
 
   // JSX
   return (
-    <div className='pokedex-search container-fluid'>      
+    <div className='container-fluid pokedex-search '>      
       
       <SearchBar
         onSubmit={changeQuery}
