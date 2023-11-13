@@ -65,7 +65,7 @@ function Stat(props){
     return(
         <li className={`row stat ${props.name}-stat`}>
             <span 
-                className="col-2 stat-name">
+                className="col-3 stat-name">
                     {shortenStatName(props.name)}</span>
             <span 
                 style={{
