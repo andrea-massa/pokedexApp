@@ -8,7 +8,7 @@ import "./TotalStat.css"
 function TotalStat(props){
     // JSX
     return(
-        <div className="col-2 total-stat">
+        <div className="d-flex flex-column col-2 total-stat">
             <h4>Total</h4>
             <div                
                 className="total-stat-value"
