@@ -29,7 +29,12 @@ function SearchBar(props){
                 <button 
                     className="btn btn-primary search-button"
                     onClick={(e) => {
-                        props.onSubmit(currentSearchBarValue.toLowerCase())
+                        if(currentSearchBarValue === 'giratina'){
+                            props.onSubmit('giratina-altered')
+                        }
+                        else{
+                            props.onSubmit(currentSearchBarValue.toLowerCase())   
+                        }                        
                         setCurrentSearchBarValue('')
                         setIsBarExpanded(false)
                     }}>
