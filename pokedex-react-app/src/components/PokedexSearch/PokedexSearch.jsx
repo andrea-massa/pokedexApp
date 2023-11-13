@@ -56,6 +56,7 @@ function PokedexSearch(){
             setPokemonData(null)
             setIsDataLoading(true);
             setAppError(null);
+            window.scrollTo(0, 0);
         })
     }, [query])
   

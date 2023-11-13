@@ -10,7 +10,9 @@ import "./Arrow.css"
 function Arrow(props){
     // JSX
     return(
-        <a className="arrow" onClick={props.onClick}>            
+        <a 
+            className={`arrow ${props.type === "next" ? "right-arrow" : "left-arrow"}`} 
+            onClick={props.onClick}>            
             {props.type === "next" ? <RiArrowDropRightLine/> : <RiArrowDropLeftLine/>}
         </a>
     )
