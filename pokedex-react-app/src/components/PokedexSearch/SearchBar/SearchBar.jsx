@@ -90,7 +90,7 @@ function SearchBar(props){
                 <IoSearchOutline 
                     className="search-icon" 
                     onClick={() => {
-                        window.scrollTo(0, 0);
+                        setTimeout(() => {window.scroll(0, 0)}, 200)
                         setIsBarExpanded(true)                    
                     }}/>                    
             </div>
