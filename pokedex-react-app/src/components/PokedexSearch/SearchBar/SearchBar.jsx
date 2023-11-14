@@ -16,20 +16,27 @@ function SearchBar(props){
     useEffect(() => {             
         const searchBarInput = document.getElementById('search-bar-input')    
 
-        function handleFocusOut(){            
+        function handleFocusOut(){                      
             setTimeout(() => {setIsBarExpanded(false)}, 100)
+        }
+        function handleScroll(){
+            setTimeout(() => {
+                if(scrollY > 100){
+                    setIsBarExpanded(false)
+                }
+            }, 1000)
         }
 
         if(isBarExpanded && searchBarInput){
             searchBarInput.focus()            
             searchBarInput.addEventListener('focusout', handleFocusOut)
-            document.addEventListener('scroll', handleFocusOut)
+            document.addEventListener('scroll', handleScroll)
         }        
         
         return () =>{
             if(searchBarInput){
                 searchBarInput.removeEventListener('focusout', handleFocusOut)
-                document.removeEventListener('scroll', handleFocusOut)
+                document.removeEventListener('scroll', handleScroll)
             }            
         }
 
@@ -84,7 +91,7 @@ function SearchBar(props){
                     className="search-icon" 
                     onClick={() => {
                         window.scrollTo(0, 0);
-                        setIsBarExpanded(true)
+                        setIsBarExpanded(true)                    
                     }}/>                    
             </div>
             }            
