@@ -31,7 +31,7 @@ function PokemonEvolutionChain(props){
             }
             response.json()
             // If the response is okay, parse the JSON
-            .then((jsonData) => {
+            .then((jsonData) => {                
                 // If the JSON is not valid (does not have the right data), throw an error
                 if(!jsonData.hasOwnProperty('chain')){
                     throw new Error('Evolution data not availble for this pokemon')
@@ -41,7 +41,7 @@ function PokemonEvolutionChain(props){
                     firstStage: [jsonData.chain]
                 })
                 // If the pokemon has an evolution, set the evolution data to have a second stage too
-                if(jsonData.chain.evolves_to.length > 0){
+                if(jsonData.chain.evolves_to.length > 0){                    
                     setEvolutionData((prevValue) => {
                         return ({
                             firstStage: prevValue.firstStage, 

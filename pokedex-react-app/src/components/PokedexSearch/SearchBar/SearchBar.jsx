@@ -24,7 +24,7 @@ function SearchBar(props){
                 if(scrollY > 100){
                     setIsBarExpanded(false)
                 }
-            }, 1000)
+            }, 2000)
         }
 
         if(isBarExpanded && searchBarInput){
@@ -91,7 +91,7 @@ function SearchBar(props){
                     className="search-icon" 
                     onClick={() => {
                         setTimeout(() => {
-                            window.scroll(0, 0)
+                            window.scroll({top: -1, left: 0, behavior: "smooth"})
                             setIsBarExpanded(true)                    
                         }, 200)                        
                     }}/>                    
