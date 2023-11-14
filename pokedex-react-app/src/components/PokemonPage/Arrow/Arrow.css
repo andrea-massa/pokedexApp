@@ -11,3 +11,11 @@
         opacity: 1;
         scale: 1.5;
     }
+        .right-arrow{
+            position: relative;
+            left: 25px;
+        }
+        .left-arrow{
+            position: relative;
+            right: 25px;
+        }
