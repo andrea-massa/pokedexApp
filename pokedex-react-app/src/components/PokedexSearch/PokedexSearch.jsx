@@ -13,7 +13,7 @@ function PokedexSearch(){
     let [pokemonData, setPokemonData] = useState({})
     let [isDataLoading, setIsDataLoading] = useState(true);
     let [appError, setAppError] = useState(null)
-    let [query, setQuery] = useState('ditto')
+    let [query, setQuery] = useState('pikachu')
     let [searchBarInput, setSearchBarInput] = useState('');
 
     // USE-EFFECT

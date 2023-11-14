@@ -24,7 +24,7 @@ function SearchBar(props){
                 if(scrollY > 100){
                     setIsBarExpanded(false)
                 }
-            }, 1000)
+            }, 2000)
         }
 
         if(isBarExpanded && searchBarInput){
@@ -90,8 +90,10 @@ function SearchBar(props){
                 <IoSearchOutline 
                     className="search-icon" 
                     onClick={() => {
-                        window.scrollTo(0, 0);
-                        setIsBarExpanded(true)                    
+                        setTimeout(() => {
+                            window.scroll({top: -1, left: 0, behavior: "smooth"})
+                            setIsBarExpanded(true)                    
+                        }, 200)                        
                     }}/>                    
             </div>
             }            
