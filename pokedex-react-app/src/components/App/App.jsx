@@ -22,7 +22,7 @@ function App() {
           <Link to={'./pokedex'}>Pokedex</Link>          
         </div>
         <div>
-          <Link to={'./pokemon/12'}>Pokemon</Link>
+          <Link to={'./pokemon/89'}>Pokemon</Link>
         </div>
         <div>
           <Outlet/>

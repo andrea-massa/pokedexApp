@@ -15,7 +15,6 @@ function PokedexSearch(){
     let [pokemonData, setPokemonData] = useState({})
     let [isDataLoading, setIsDataLoading] = useState(true);
     let [appError, setAppError] = useState(null)
-    let [query, setQuery] = useState(params.pokemonId)
 
     // USE-EFFECT
     useEffect(()=>{        
@@ -62,19 +61,7 @@ function PokedexSearch(){
     }, [params.pokemonId])
   
 
-    // This function changes the query based on the input received from pokemonName
-    function changeQuery(pokemonName){
-        setQuery(pokemonName)
-    }
 
-    // These functions are related to the arrows in the UI and allow to fetch the previous and 
-    // next pokemon on the current page
-    function getNextPokemon(){
-        setQuery(pokemonData.id + 1)
-    }  
-    function getPreviousPokemon(){
-        setQuery(pokemonData.id - 1)
-    }
 
 
   // JSX
@@ -102,7 +89,7 @@ function PokedexSearch(){
       {pokemonData !== null && !isDataLoading && 
         <PokemonPage 
           pokemonData = {pokemonData}
-          changePokemon = {changeQuery}/>
+        />
       }
 
     </div>
