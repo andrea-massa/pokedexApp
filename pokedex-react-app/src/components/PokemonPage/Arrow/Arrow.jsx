@@ -1,5 +1,6 @@
 // IMPORTS
 // Components
+import { Link } from "react-router-dom";
 import { RiArrowDropRightLine, RiArrowDropLeftLine } from "react-icons/ri";
 
 // Styles
@@ -10,11 +11,11 @@ import "./Arrow.css"
 function Arrow(props){
     // JSX
     return(
-        <a 
+        <Link 
             className={`arrow ${props.type === "next" ? "right-arrow" : "left-arrow"}`} 
-            onClick={props.onClick}>            
+            to={props.type === "next" ? `/pokemon/${parseInt(props.current) + 1}` : `/pokemon/${parseInt(props.current) - 1}`}>            
             {props.type === "next" ? <RiArrowDropRightLine/> : <RiArrowDropLeftLine/>}
-        </a>
+        </Link>
     )
 }
 

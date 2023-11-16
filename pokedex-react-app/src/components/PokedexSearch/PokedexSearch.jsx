@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import './PokedexSearch.css'
 
 import Loading from '../Loading/Loading'
@@ -16,12 +16,11 @@ function PokedexSearch(){
     let [isDataLoading, setIsDataLoading] = useState(true);
     let [appError, setAppError] = useState(null)
     let [query, setQuery] = useState(params.pokemonId)
-    let [searchBarInput, setSearchBarInput] = useState('');
 
     // USE-EFFECT
     useEffect(()=>{        
         // Fetch Pokemon Data from the PokeAPI based on the given query state
-        fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
+        fetch(`https://pokeapi.co/api/v2/pokemon/${params.pokemonId}`)
         .then((response) => {
             // If no or bad response, throw an error. Otherwise, return that reponse
             if(!response.ok){
@@ -60,7 +59,7 @@ function PokedexSearch(){
             setAppError(null);
             window.scrollTo(0, 0);
         })
-    }, [query])
+    }, [params.pokemonId])
   
 
     // This function changes the query based on the input received from pokemonName
@@ -81,18 +80,14 @@ function PokedexSearch(){
   // JSX
   return (
     <div className='container-fluid pokedex-search '>      
-      
-      <SearchBar
-        onSubmit={changeQuery}
-      />
 
       <div className='arrows-ui'>
         <Arrow
-          onClick={getPreviousPokemon}
+          current={params.pokemonId}
           type="prev"
         />
         <Arrow
-          onClick={getNextPokemon}
+          current={params.pokemonId}
           type="next"        
         />
       </div>

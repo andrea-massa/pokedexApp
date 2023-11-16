@@ -1,6 +1,7 @@
 // IMPORTS
 // Hooks
 import { useEffect, useState } from "react"
+import {Link} from "react-router-dom"
 
 // Components
 import Loading from "../../../../Loading/Loading"
@@ -66,9 +67,7 @@ function PokemonEvolutionForm(props){
             {props.evolutionData.length > 0 && <PokemonEvolutionTrigger triggerName={props.evolutionData[0].trigger.name}/> }
 
             {/* Display this pokemon's form data */}
-            <div className="pokemon-evolution-form" onClick={(e) => {
-                props.changePokemon(props.pokemonData.name);
-            }}>
+            <Link className="pokemon-evolution-form" to={`/pokemon/${props.pokemonData.url.split('/')[6]}`}>
                 <div className="form-image-container">               
                     {isLoading 
                     ? 
@@ -81,8 +80,8 @@ function PokemonEvolutionForm(props){
                         types={formImageData.types}/>                       
                     }
                 </div>
-                <p className="form-name">{props.pokemonData.name}</p>                
-            </div>
+                <p className="form-name">{props.pokemonData.name}</p>                            
+            </Link>
         </div>
     )
 }
