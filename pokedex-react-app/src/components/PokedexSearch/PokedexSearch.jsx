@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react"
+import { useParams } from "react-router-dom"
 import './PokedexSearch.css'
 
 import Loading from '../Loading/Loading'
@@ -9,15 +10,16 @@ import SearchBar from "./SearchBar/SearchBar"
 
 
 function PokedexSearch(){
+    const params = useParams();
     // STATES
     let [pokemonData, setPokemonData] = useState({})
     let [isDataLoading, setIsDataLoading] = useState(true);
     let [appError, setAppError] = useState(null)
-    let [query, setQuery] = useState('pikachu')
+    let [query, setQuery] = useState(params.pokemonId)
     let [searchBarInput, setSearchBarInput] = useState('');
 
     // USE-EFFECT
-    useEffect(()=>{
+    useEffect(()=>{        
         // Fetch Pokemon Data from the PokeAPI based on the given query state
         fetch(`https://pokeapi.co/api/v2/pokemon/${query}`)
         .then((response) => {
