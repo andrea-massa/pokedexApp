@@ -3,14 +3,14 @@
 import React, {useState} from "react"
 
 // Components
-import PokemonTitle from "./PokemonTitle/PokemonTitle"
-import PokemonTypes from "./PokemonTypes/PokemonTypes"
-import PokemonDescription from "./PokemonDescription/PokemonDescription"
-import PokemonImage from "./PokemonImage/PokemonImage"
-import PokemonAbilities from "./PokemonAbilities/PokemonAbilities"
-import PokemonBiometrics from "./PokemonBiometrics/PokemonBiometrics"
-import PokemonEvolutionChain from "./PokemonEvolutionChain/PokemonEvolutionChain"
-import PokemonStats from "./PokemonStats/PokemonStats"
+import PokemonTitle from "../../PokemonPageComponents/PokemonTitle/PokemonTitle"
+import PokemonTypes from "../../PokemonPageComponents/PokemonTypes/PokemonTypes"
+import PokemonDescription from "../../PokemonPageComponents/PokemonDescription/PokemonDescription"
+import PokemonImage from "../../PokemonPageComponents/PokemonImage/PokemonImage"
+import PokemonAbilities from "../../PokemonPageComponents/PokemonAbilities/PokemonAbilities"
+import PokemonBiometrics from "../../PokemonPageComponents/PokemonBiometrics/PokemonBiometrics"
+import PokemonEvolutionChain from "../../PokemonPageComponents/PokemonEvolutionChain/PokemonEvolutionChain"
+import PokemonStats from "../../PokemonPageComponents/PokemonStats/PokemonStats"
 
 // Styles
 import "./PokemonPage.css"
@@ -22,10 +22,17 @@ function PokemonPage(props){
     // STATES
     const [evolutionChainEndpoint, setEvolutionChainEndpoint] = useState('');    
 
-
     // JSX
     return(
         <div className="container-fluid pokemon-page">
+            {/* Change this */}
+            <button 
+                className="btn btn-primary"
+                onClick={() => {
+                    document.getElementById('pokedex').classList()
+                }}>
+                Back
+            </button>
 
             <div className="container header-container">
                 <PokemonTitle 

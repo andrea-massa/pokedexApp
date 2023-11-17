@@ -6,6 +6,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 
 // Components
+import Pokedex from "../Routes/PokedexPage/PokedexPage"
 import PokedexSearch from '../PokedexSearch/PokedexSearch'
 
 // Styles
@@ -18,12 +19,7 @@ import '../../../public/fonts.css'
 function App() {  
   return(
     <div className='container-fluid app'>
-        <div>
-          <Link to={'./pokedex'}>Pokedex</Link>          
-        </div>
-        <div>
-          <Link to={'./pokemon/89'}>Pokemon</Link>
-        </div>
+        <Pokedex/>
         <div>
           <Outlet/>
         </div>

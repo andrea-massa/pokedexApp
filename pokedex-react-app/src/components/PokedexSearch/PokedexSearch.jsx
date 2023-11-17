@@ -4,8 +4,8 @@ import './PokedexSearch.css'
 
 import Loading from '../Loading/Loading'
 import AppError from '../AppError/AppError'
-import PokemonPage from '../PokemonPage/PokemonPage'
-import Arrow from "../PokemonPage/Arrow/Arrow"
+import PokemonPage from '../Routes/PokemonPage/PokemonPage'
+import Arrow from "../PokemonPageComponents/Arrow/Arrow"
 import SearchBar from "./SearchBar/SearchBar"
 
 

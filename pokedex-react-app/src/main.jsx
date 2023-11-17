@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 
 import App from './components/App/App.jsx'
-import Pokedex from './components/Routes/Pokedex/Pokedex.jsx'
+import Pokedex from './components/Routes/PokedexPage/PokedexPage.jsx'
 import PokedexSearch from './components/PokedexSearch/PokedexSearch.jsx'
 
 
@@ -15,10 +15,6 @@ const router = createBrowserRouter([
     path: '/',
     element: <App/>,
     children: [
-      {
-        path: "/pokedex",
-        element: <Pokedex/>
-      },
       {
         path: "/pokemon/:pokemonId",
         element: <PokedexSearch/>
