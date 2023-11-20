@@ -16,33 +16,45 @@ async function getEntryImage(url){
 
 function PokedexEntry({navigateTo, name, number, fetchInfoUrl}){
     const [pokemonImageUrl, setPokemonImageUrl] = useState(null)
-    const [appError, setAppError] = useState(null)
+    const[isImageLoading, setIsImageLoading] = useState(true)
 
     useEffect(() => {
-        getEntryImage(fetchInfoUrl)
-            .then((imageUrl) => {setPokemonImageUrl(imageUrl)})
-            .catch((error) => {console.log(error)})        
 
+        getEntryImage(fetchInfoUrl)
+            .then((imageUrl) => {
+                setPokemonImageUrl(imageUrl)
+                setIsImageLoading(false)                
+            })
+            .catch((error) => {
+                setIsImageLoading(false)
+                console.log(`No image for ${name}`)                
+            })        
+
+        return() => {
+            setIsImageLoading(true)
+        }
     }, [fetchInfoUrl])
 
 
-    return(
-        <div className="pokedex-entry">
-            <Link
-                className="pokedex-entry border"
-                to={navigateTo}>          
+    return(        
+        <Link
+            className="pokedex-entry"
+            to={navigateTo}>          
 
-                <div className="pokeball">
-                    <img className="sprite" src={pokemonImageUrl} alt={`${name}-sprite`} />
-                </div>
+            {isImageLoading ? <Loading/> : 
+            <>
+            <div className="pokeball-image-container">
+                <img className="sprite img-fluid" src={pokemonImageUrl} alt={`${name}-sprite`} />
+            </div>
+            
 
-                <h4 className="pokemon-text">
-                    <span className="pokemon-number">{number}</span>
-                    <span className="pokemon-name">{name}</span>
-                </h4>
-
-            </Link>
-        </div>
+            <h4 className="pokemon-text">
+                <span className="pokemon-number">{number}</span>
+                <span className="pokemon-name">{name}</span>
+            </h4>
+            </>
+            }
+        </Link>        
     )
 }
 

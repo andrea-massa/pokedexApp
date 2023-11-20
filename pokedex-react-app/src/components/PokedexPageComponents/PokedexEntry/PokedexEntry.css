@@ -1,5 +1,51 @@
 .pokedex-entry{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 20px;
     width: 200px;
-
+    text-decoration: none;
 }
+
+    /* Image */
+    .pokedex-entry .pokeball-image-container{        
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        background: linear-gradient(180deg, #FE0404 0%, rgba(0, 0, 0, 0.94) 55.25%, #FFF 100%);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+        .sprite{
+            width: 140px;
+            height: 140px;
+        }
+
+    /* Text */
+    .pokedex-entry .pokemon-text{        
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        color: white;
+        font-size: 16px;        
+        margin-top: 15px;        
+    }
+        .pokedex-entry .pokemon-text .pokemon-name{            
+            font-family: var(--sans-font);
+            text-transform: capitalize;
+            margin-left: 10px;
+            padding-top: 5px;
+        }
+        .pokedex-entry .pokemon-text .pokemon-number{            
+            text-align: center;   
+            padding-left: 5px;
+            padding-right: 5px;                     
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%), #B3A7FF;
+            margin-right: 10px;
+            border-radius: 50px;
+
+        }
