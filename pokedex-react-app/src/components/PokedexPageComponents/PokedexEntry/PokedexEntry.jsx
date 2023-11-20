@@ -16,7 +16,8 @@ async function getEntryImage(url){
 
 function PokedexEntry({navigateTo, name, number, fetchInfoUrl}){
     const [pokemonImageUrl, setPokemonImageUrl] = useState(null)
-    const[isImageLoading, setIsImageLoading] = useState(true)
+    const [isImageLoading, setIsImageLoading] = useState(true)
+    const [isHovered, setIsHovered] = useState(false)
 
     useEffect(() => {
 
@@ -28,7 +29,7 @@ function PokedexEntry({navigateTo, name, number, fetchInfoUrl}){
             .catch((error) => {
                 setIsImageLoading(false)
                 console.log(`No image for ${name}`)                
-            })        
+            })                
 
         return() => {
             setIsImageLoading(true)
@@ -38,13 +39,18 @@ function PokedexEntry({navigateTo, name, number, fetchInfoUrl}){
 
     return(        
         <Link
-            className="pokedex-entry"
-            to={navigateTo}>          
+            className={'pokedex-entry'}
+            to={navigateTo}
+            onMouseEnter={(e) => {setIsHovered(true)}}
+            onMouseLeave={(e) => {setIsHovered(false)}}>          
 
             {isImageLoading ? <Loading/> : 
             <>
-            <div className="pokeball-image-container">
-                <img className="sprite img-fluid" src={pokemonImageUrl} alt={`${name}-sprite`} />
+            <div className={`pokeball-image-container ${isHovered && 'magnify'}`}>
+                <img 
+                    className="sprite img-fluid" 
+                    src={pokemonImageUrl} 
+                    alt={`${name}-sprite`} />
             </div>
             
 
