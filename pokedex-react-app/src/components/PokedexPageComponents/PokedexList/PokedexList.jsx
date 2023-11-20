@@ -6,8 +6,11 @@ function PokedexList(props){
             {props.allPokemonData.map((pokemon, index) => {
                 return(
                     <PokedexEntry
+                        key={index}
                         navigateTo={`/pokemon/${pokemon.url.split('/')[6]}`}
-                        pokemonData={pokemon}                                
+                        name={pokemon.name}                   
+                        number={pokemon.url.split('/')[6]}
+                        fetchInfoUrl={pokemon.url}
                     />
                 )     
             })}
