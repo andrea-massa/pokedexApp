@@ -37,11 +37,13 @@
     }
         .pokedex-entry .pokemon-text .pokemon-name{            
             font-family: var(--sans-font);
+            font-weight: normal;
             text-transform: capitalize;
             margin-left: 10px;
             padding-top: 5px;
         }
         .pokedex-entry .pokemon-text .pokemon-number{            
+            font-family: var(--mono-font);
             text-align: center;   
             padding-left: 5px;
             padding-right: 5px;                     
