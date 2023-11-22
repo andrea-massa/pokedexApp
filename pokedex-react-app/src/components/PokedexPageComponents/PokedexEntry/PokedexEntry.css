@@ -6,6 +6,7 @@
     margin: 20px;
     width: 200px;
     text-decoration: none;
+    transition: all 200ms;
 }
 
     /* Image */
@@ -32,7 +33,7 @@
         justify-content: space-around;
         align-items: center;
         color: white;
-        font-size: 16px;        
+        font-size: 12pt;        
         margin-top: 15px;        
     }
         .pokedex-entry .pokemon-text .pokemon-name{            
@@ -44,9 +45,10 @@
         }
         .pokedex-entry .pokemon-text .pokemon-number{            
             font-family: var(--mono-font);
+            font-size: 16pt;
             text-align: center;   
             padding-left: 5px;
-            padding-right: 5px;                     
+            padding-right: 5px;     
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%), #B3A7FF;
             margin-right: 10px;
             border-radius: 50px;
@@ -64,5 +66,5 @@
 }
 .magnify{
     scale: 1.2;
-    transition: 500ms;
+    transition: 200ms;
 }

@@ -6,6 +6,7 @@ import AppError from "../../AppError/AppError"
 
 import "./PokedexEntry.css"
 
+console.log('running')
 
 async function getEntryImage(url){
     let response = await fetch(url)
@@ -27,14 +28,14 @@ function PokedexEntry({navigateTo, name, number, fetchInfoUrl}){
                 setIsImageLoading(false)                
             })
             .catch((error) => {
-                setIsImageLoading(false)
-                console.log(`No image for ${name}`)                
+                console.log(error)    
+                setIsImageLoading(false)         
             })                
 
         return() => {
             setIsImageLoading(true)
         }
-    }, [fetchInfoUrl])
+    }, [])
 
 
     return(        
@@ -46,18 +47,18 @@ function PokedexEntry({navigateTo, name, number, fetchInfoUrl}){
 
             {isImageLoading ? <Loading/> : 
             <>
-            <div className={`pokeball-image-container ${isHovered && 'magnify'}`}>
-                <img 
-                    className="sprite img-fluid" 
-                    src={pokemonImageUrl} 
-                    alt={`${name}-sprite`} />
-            </div>
-            
+                <div className={`pokeball-image-container ${isHovered && 'magnify'}`}>
+                    <img 
+                        className="sprite img-fluid" 
+                        src={pokemonImageUrl} 
+                        alt={`Image for ${name} unavailable`} />
+                </div>
+                
 
-            <h4 className="pokemon-text">
-                <span className="pokemon-number">{number}</span>
-                <span className="pokemon-name">{name}</span>
-            </h4>
+                <h4 className="pokemon-text">
+                    <span className="pokemon-number">{number}</span>
+                    <span className="pokemon-name">{name}</span>
+                </h4>
             </>
             }
         </Link>        

@@ -4,28 +4,37 @@ import {useState, useEffect} from "react"
 import Loading from "../../Loading/Loading"
 import AppError from "../../AppError/AppError"
 import PokedexList from "../../PokedexPageComponents/PokedexList/PokedexList"
-
+import PokedexPagination from "../../PokedexPageComponents/PokedexPagination/PokedexPagination"
 
 import "./PokedexPage.css"
-import App from "../../App/App"
+
 
 
 function Pokedex(){    
+    const [delimeters, setDelimeters] = useState({start: 0, offset: 20})    
     const [allPokemonData, setAllPokemonData] = useState(null)
     const [isDataLoading, setIsDataLoading] = useState(true)
     const [appError, setAppError] = useState(null)
-    const [isVisible, setIsVisible] = useState(true)
+
 
     async function getAllPokemonData(){        
-        try{
-            let response = await fetch ('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1013')
-            let jsonData = await response.json()
-            return jsonData
-        }
-        catch(error){
-            console.log(error)
-            return error
-        }
+        let endpoint = `https://pokeapi.co/api/v2/pokemon/?offset=${delimeters.start}&limit=${delimeters.offset}`
+        console.log('Calling endpoiint ' + endpoint)
+        let response = await fetch(endpoint);
+        let jsonData = await response.json()
+        return jsonData
+    }
+
+    function getPrevPokedexPage(){        
+        setDelimeters((prevDelimet) => {
+            return {...prevDelimet, start: prevDelimet.start - prevDelimet.offset}
+        })
+    }
+
+    function getNextPokededexPage(){
+        setDelimeters((prevDelimet) =>{
+            return {...prevDelimet, start: prevDelimet.start + prevDelimet.offset}
+        })
     }
 
     useEffect(() => {
@@ -41,11 +50,11 @@ function Pokedex(){
             setIsDataLoading(true)
             setAppError(null)
         }
-    }, [])
+    }, [delimeters])
 
 
     return(
-        <div id="pokedex-page" className={`${isVisible ? 'show' : 'hide'} container border`}>
+        <div id="pokedex-page" className='container border'>
 
             {!isDataLoading !== null && allPokemonData !== null?
                 appError == null ?            
@@ -56,7 +65,13 @@ function Pokedex(){
                     :
                 <Loading/>                
             }
-        </div>
+
+            <PokedexPagination
+                next = {getNextPokededexPage}                    
+                prev = {getPrevPokedexPage}
+                upperLimit = {1013}
+            />
+        </div>        
     )
 }
 
