@@ -11,7 +11,7 @@ import "./PokedexPage.css"
 
 
 function Pokedex(){    
-    const [delimeters, setDelimeters] = useState({start: 900, offset: 20})    
+    const [delimeters, setDelimeters] = useState({start: 960, offset: 20})    
     const [allPokemonData, setAllPokemonData] = useState(null)
     const [isDataLoading, setIsDataLoading] = useState(true)
     const [appError, setAppError] = useState(null)
@@ -31,7 +31,7 @@ function Pokedex(){
         })
     }
 
-    function getNextPokededexPage(){
+    function getNextPokededexPage(){        
         setDelimeters((prevDelimet) =>{                  
             return {...prevDelimet, start: prevDelimet.start + prevDelimet.offset}
         })
@@ -69,6 +69,7 @@ function Pokedex(){
             <PokedexPagination
                 getNext = {getNextPokededexPage}                    
                 getPrev = {getPrevPokedexPage}
+                offset = {delimeters.offset}
                 currentState = {{
                     first: delimeters.start + 1, 
                     last: delimeters.start + delimeters.offset
