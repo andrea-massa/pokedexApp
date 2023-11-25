@@ -11,36 +11,50 @@ import "./PokedexPage.css"
 
 
 function Pokedex(){    
-    const [delimeters, setDelimeters] = useState({start: 960, offset: 20})    
+    const [endpoints, setEndpoints] = useState({prev: null, current: 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20', next: null})
+    const [paginationOptions, setPaginationOptions] = useState({offset: 0, limit: 20})
     const [allPokemonData, setAllPokemonData] = useState(null)
     const [isDataLoading, setIsDataLoading] = useState(true)
     const [appError, setAppError] = useState(null)
 
 
     async function getAllPokemonData(){        
-        let endpoint = `https://pokeapi.co/api/v2/pokemon/?offset=${delimeters.start}&limit=${delimeters.offset}`
-        console.log('Calling endpoiint ' + endpoint)
-        let response = await fetch(endpoint);
+        console.log('Calling endpoiint ' + endpoints.current)
+        let response = await fetch(endpoints.current);
         let jsonData = await response.json()
         return jsonData
     }
 
-    function getPrevPokedexPage(){        
-        setDelimeters((prevDelimet) => {
-            return {...prevDelimet, start: prevDelimet.start - prevDelimet.offset}
-        })
+    function nextEndpoint(){
+        if(endpoints.next !== null){
+            setPaginationOptions((prevState) => {
+                return {...paginationOptions, offset: prevState.offset + prevState.limit}
+            })
+            setEndpoints({current: endpoints.next})
+        }
     }
 
-    function getNextPokededexPage(){        
-        setDelimeters((prevDelimet) =>{                  
-            return {...prevDelimet, start: prevDelimet.start + prevDelimet.offset}
-        })
+    function prevEndpoint(){
+        if(endpoints.prev !== null){
+            setPaginationOptions((prevState) => {
+                return {...paginationOptions, offset: prevState.offset - prevState.limit}
+            })
+            setEndpoints({current: endpoints.prev})
+        }
     }
 
+    function changeEndpoint(offset, limit){     
+        setEndpoints({current: `https://pokeapi.co/api/v2/pokemon/?offset=${paginationOptions.offset}&limit=${paginationOptions.limit}`})
+    }
+
+    
     useEffect(() => {
         getAllPokemonData()
         .then((data) => {
-            setAllPokemonData(data)
+            setEndpoints((prevState) => {
+                return {...endpoints, prev: data.previous, next: data.next}
+            })
+            setAllPokemonData(data.results)
             setIsDataLoading(false)
         })
         .catch(error => {setAppError("Error Fetching Pokedex Data")})
@@ -50,7 +64,7 @@ function Pokedex(){
             setIsDataLoading(true)
             setAppError(null)
         }
-    }, [delimeters])
+    }, [endpoints.current])
 
 
     return(
@@ -59,21 +73,19 @@ function Pokedex(){
             {!isDataLoading !== null && allPokemonData !== null?
                 appError == null ?            
                     <PokedexList
-                        allPokemonData={allPokemonData.results}/>
+                        allPokemonData={allPokemonData}/>
                     :
                     <AppError errorTxt={appError}/>
                     :
                 <Loading/>                
             }
-
             <PokedexPagination
-                getNext = {getNextPokededexPage}                    
-                getPrev = {getPrevPokedexPage}
-                offset = {delimeters.offset}
-                currentState = {{
-                    first: delimeters.start + 1, 
-                    last: delimeters.start + delimeters.offset
-                }}
+                getNext = {nextEndpoint}                    
+                getPrev = {prevEndpoint}
+                offset = {paginationOptions.offset}
+                limit = {paginationOptions.limit}
+                customQuery={changeEndpoint}
+                currentState = {endpoints}
                 upperLimit = {1008}
             />
         </div>        
