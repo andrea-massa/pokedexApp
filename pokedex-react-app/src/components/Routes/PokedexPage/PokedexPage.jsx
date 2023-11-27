@@ -44,7 +44,7 @@ function Pokedex(){
     }
 
     function changeEndpoint(offset, limit){     
-        setEndpoints({current: `https://pokeapi.co/api/v2/pokemon/?offset=${paginationOptions.offset}&limit=${paginationOptions.limit}`})
+        setEndpoints({current: `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`})
     }
 
     
