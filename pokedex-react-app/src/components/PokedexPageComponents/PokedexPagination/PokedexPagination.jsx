@@ -1,10 +1,18 @@
 import PaginationPill from "./PaginationPill/PaginationPill"
 import "./PokedexPagination.css"
 
-function generatePaginationPills(upperLimit, limit, offset){
+function generatePaginationPills(upperLimit, limit, offset, currentState){
+    let currentOffset = offset
     let paginationPills = []
-    for (offset; offset <= upperLimit; offset += limit){
-        paginationPills.push(<PaginationPill start={offset} end={offset + limit}/>)         
+    for (let i = offset - limit * 2; i <= offset + limit * 2; i += limit){
+        if(i >= 0 && i < upperLimit - limit){
+            paginationPills.push(
+                <PaginationPill 
+                    start={i} 
+                    end={i + limit} 
+                    isCurrent={(currentOffset >= i) && (currentOffset < (i + limit)) ? true : false}/>
+            )         
+        }
     }
     return paginationPills
 }

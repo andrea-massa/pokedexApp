@@ -85,7 +85,7 @@ function Pokedex(){
                 offset = {paginationOptions.offset}
                 limit = {paginationOptions.limit}
                 customQuery={changeEndpoint}
-                currentState = {endpoints}
+                currentState = {endpoints}                
                 upperLimit = {1008}
             />
         </div>        
