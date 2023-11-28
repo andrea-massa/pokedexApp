@@ -1,4 +1,18 @@
 .app{
     min-height: 100vh;
-    background: linear-gradient(180deg, #8D7AFF 15.63%, rgba(168, 154, 255, 0.95) 53.91%, rgba(206, 198, 255, 0.88) 82.23%, rgba(255, 255, 255, 0.67) 100%);
+    background: linear-gradient(-45deg, #8D7AFF, rgba(168, 154, 255, 0.95), rgba(206, 198, 255, 0.88));
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }

@@ -1,7 +1,3 @@
-#pokedex-page{
-    margin-bottom: 200px;
-
-}
     #pokedex-list{
         display: flex;
         flex-direction: row;

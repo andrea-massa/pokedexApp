@@ -29,7 +29,7 @@ function PokedexPagination({currentState, getPrev, getNext, offset, limit, custo
 
 
     return(                    
-        <nav aria-label="pagination" id="pokedex-pagination">
+        <nav aria-label="pagination" id="pokedex-pagination" className="border">
             <ul className="pagination">
                 <li className={`page-item ${currentState.prev === null && 'disabled'}`} onClick={() => {
                     getPrev()                                
