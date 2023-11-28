@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { RiArrowDropRightLine, RiArrowDropLeftLine } from "react-icons/ri";
 import PaginationPill from "./PaginationPill/PaginationPill"
 import "./PokedexPagination.css"
 
@@ -28,18 +29,18 @@ function PokedexPagination({currentState, getPrev, getNext, offset, limit, custo
 
 
     return(                    
-        <nav aria-label="...">
+        <nav aria-label="pagination" id="pokedex-pagination">
             <ul className="pagination">
                 <li className={`page-item ${currentState.prev === null && 'disabled'}`} onClick={() => {
                     getPrev()                                
-                }}><a className="page-link">
-                    Prev
-                </a></li>      
+                }}>
+                    <a className="pagination-arrow page-link"><RiArrowDropLeftLine/></a>
+                </li>      
                 {generatePaginationPills().map((element) => {return element})}
                 <li className={`page-item ${(currentState.next === null || offset + limit >= upperLimit) && 'disabled'}`} onClick={() => {
-                        getNext(offset)
-                    }}>
-                    <a className="page-link">Next</a>
+                    getNext(offset)
+                }}>
+                    <a className="pagination-arrow page-link"><RiArrowDropRightLine/></a>
                 </li>
             </ul>
         </nav>        

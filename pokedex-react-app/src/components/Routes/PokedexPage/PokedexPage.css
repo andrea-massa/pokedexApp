@@ -1,15 +1,14 @@
-/* .pokedex{
+#pokedex-page{
+    margin-bottom: 200px;
 
-} */
+}
     #pokedex-list{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
     }
-    #pokedex-page.show{
-        display: block;
-    }
-    #pokedex.hide{
-        display: none;
+    #pagination-container{
+        display: flex;
+        justify-content: center;        
     }

@@ -1,0 +1,18 @@
+.pagination-pill .page-link{
+    border: none;
+    border-radius: 50px !important;
+    padding-top: 15px;    
+   background-color: #3c6e71;
+   color: white;
+   font-family: var(--mono-font);
+   font-size: 12pt;
+}
+    .pagination-pill .page-link:hover{
+        background-color: white;
+        color: red;
+        cursor: pointer;
+    }
+    .pagination-pill.active > .page-link{
+        background-color: white;
+        color: red;
+    }

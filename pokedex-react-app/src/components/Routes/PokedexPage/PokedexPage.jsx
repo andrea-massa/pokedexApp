@@ -11,8 +11,8 @@ import "./PokedexPage.css"
 
 
 function Pokedex(){    
-    const [endpoints, setEndpoints] = useState({prev: null, current: 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20', next: null})
-    const [paginationOptions, setPaginationOptions] = useState({offset: 0, limit: 20})
+    const [endpoints, setEndpoints] = useState({prev: null, current: 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=40', next: null})
+    const [paginationOptions, setPaginationOptions] = useState({offset: 0, limit: 40})
     const [allPokemonData, setAllPokemonData] = useState(null)
     const [isDataLoading, setIsDataLoading] = useState(true)
     const [appError, setAppError] = useState(null)
@@ -80,15 +80,18 @@ function Pokedex(){
                     :
                 <Loading/>                
             }
-            <PokedexPagination
-                getNext = {nextEndpoint}                    
-                getPrev = {prevEndpoint}
-                offset = {paginationOptions.offset}
-                limit = {paginationOptions.limit}
-                customQuery={changeEndpoint}
-                currentState = {endpoints}                
-                upperLimit = {1008}
-            />
+
+            <div className="container-lg border" id="pagination-container">
+                <PokedexPagination
+                    getNext = {nextEndpoint}                    
+                    getPrev = {prevEndpoint}
+                    offset = {paginationOptions.offset}
+                    limit = {paginationOptions.limit}
+                    customQuery={changeEndpoint}
+                    currentState = {endpoints}                
+                    upperLimit = {1008}
+                />
+            </div>
         </div>        
     )
 }
