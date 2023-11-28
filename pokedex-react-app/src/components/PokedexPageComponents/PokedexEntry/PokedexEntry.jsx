@@ -6,7 +6,7 @@ import AppError from "../../AppError/AppError"
 
 import "./PokedexEntry.css"
 
-console.log('running')
+
 
 async function getEntryImage(url){
     let response = await fetch(url)

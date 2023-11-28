@@ -1,25 +1,32 @@
+import { useState } from "react"
 import PaginationPill from "./PaginationPill/PaginationPill"
 import "./PokedexPagination.css"
 
-function generatePaginationPills(upperLimit, limit, offset, customQuery){
-    let currentOffset = offset
-    let paginationPills = []
-    for (let i = offset - limit * 2; i <= offset + limit * 2; i += limit){
-        if(i >= 0 && i < upperLimit - limit){
-            paginationPills.push(
-                <PaginationPill 
-                    key={i}
-                    start={i} 
-                    end={i + limit} 
-                    getPokemon={customQuery}
-                    isCurrent={(currentOffset >= i) && (currentOffset < (i + limit)) ? true : false}/>
-            )         
-        }
-    }
-    return paginationPills
-}
+
 
 function PokedexPagination({currentState, getPrev, getNext, offset, limit, customQuery, upperLimit}){
+    let [numPills, setNumPills] = useState(2)
+    
+
+    function generatePaginationPills(){
+        let currentOffset = offset
+        let paginationPills = []
+        for (let i = offset - limit * numPills; i <= offset + limit * numPills; i += limit){
+            if(i >= 0 && i < upperLimit - limit){
+                paginationPills.push(
+                    <PaginationPill 
+                        key={i}
+                        start={i} 
+                        end={i + limit} 
+                        getPokemon={customQuery}
+                        isCurrent={(currentOffset >= i) && (currentOffset < (i + limit)) ? true : false}/>
+                )         
+            }
+        }
+        return paginationPills
+    }
+
+
     return(                    
         <nav aria-label="...">
             <ul className="pagination">
@@ -28,9 +35,9 @@ function PokedexPagination({currentState, getPrev, getNext, offset, limit, custo
                 }}><a className="page-link">
                     Prev
                 </a></li>      
-                {generatePaginationPills(upperLimit, limit, offset, customQuery).map((element) => {return element})}
-                <li className={`page-item ${currentState.next === null && 'disabled'}`} onClick={() => {
-                        getNext()
+                {generatePaginationPills().map((element) => {return element})}
+                <li className={`page-item ${(currentState.next === null || offset + limit >= upperLimit) && 'disabled'}`} onClick={() => {
+                        getNext(offset)
                     }}>
                     <a className="page-link">Next</a>
                 </li>

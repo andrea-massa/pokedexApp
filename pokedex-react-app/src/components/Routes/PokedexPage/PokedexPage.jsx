@@ -25,8 +25,8 @@ function Pokedex(){
         return jsonData
     }
 
-    function nextEndpoint(){
-        if(endpoints.next !== null){
+    function nextEndpoint(currentFirst){
+        if((endpoints.next !== null) && ((currentFirst + paginationOptions.limit) < 1008) ){
             setPaginationOptions((prevState) => {
                 return {...paginationOptions, offset: prevState.offset + prevState.limit}
             })
