@@ -1,15 +1,17 @@
 import PaginationPill from "./PaginationPill/PaginationPill"
 import "./PokedexPagination.css"
 
-function generatePaginationPills(upperLimit, limit, offset, currentState){
+function generatePaginationPills(upperLimit, limit, offset, customQuery){
     let currentOffset = offset
     let paginationPills = []
     for (let i = offset - limit * 2; i <= offset + limit * 2; i += limit){
         if(i >= 0 && i < upperLimit - limit){
             paginationPills.push(
                 <PaginationPill 
+                    key={i}
                     start={i} 
                     end={i + limit} 
+                    getPokemon={customQuery}
                     isCurrent={(currentOffset >= i) && (currentOffset < (i + limit)) ? true : false}/>
             )         
         }
@@ -26,7 +28,7 @@ function PokedexPagination({currentState, getPrev, getNext, offset, limit, custo
                 }}><a className="page-link">
                     Prev
                 </a></li>      
-                {generatePaginationPills(upperLimit, limit, offset).map((element) => {return element})}
+                {generatePaginationPills(upperLimit, limit, offset, customQuery).map((element) => {return element})}
                 <li className={`page-item ${currentState.next === null && 'disabled'}`} onClick={() => {
                         getNext()
                     }}>
