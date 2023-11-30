@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from "react"
 import { useParams, Link } from "react-router-dom"
-import './PokedexSearch.css'
+import './Pokemon.css'
 
-import Loading from '../Loading/Loading'
-import AppError from '../AppError/AppError'
-import PokemonPage from '../Routes/PokemonPage/PokemonPage'
-import Arrow from "../PokemonPageComponents/Arrow/Arrow"
-import SearchBar from "./SearchBar/SearchBar"
+import Loading from '../../Loading/Loading'
+import AppError from '../../AppError/AppError'
+import PokemonPage from '../../PokemonPageComponents/PokemonPage'
+import BackButton from "../../PokemonPageComponents/BackButton/BackButton"
+import Arrow from "../../PokemonPageComponents/Arrow/Arrow"
+import SearchBar from "../../PokemonPageComponents/SearchBar/SearchBar"
 
 
-function PokedexSearch(){
+function Pokemon(){
     const params = useParams();
     // STATES
     let [pokemonData, setPokemonData] = useState({})
@@ -69,6 +70,7 @@ function PokedexSearch(){
     <div className='container-fluid pokedex-search '>      
 
       <div className='arrows-ui'>
+        <BackButton/>
         <Arrow
           current={params.pokemonId}
           type="prev"
@@ -96,4 +98,4 @@ function PokedexSearch(){
   )
 }
 
-export default PokedexSearch
+export default Pokemon
