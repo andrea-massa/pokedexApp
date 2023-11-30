@@ -10,7 +10,7 @@ import "./PokedexPage.css"
 
 
 
-function Pokedex(){    
+function PokedexPage(){    
     const [endpoints, setEndpoints] = useState({prev: null, current: 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=40', next: null})
     const [paginationOptions, setPaginationOptions] = useState({offset: 0, limit: 40})
     const [allPokemonData, setAllPokemonData] = useState(null)
@@ -96,4 +96,4 @@ function Pokedex(){
     )
 }
 
-export default Pokedex
+export default PokedexPage

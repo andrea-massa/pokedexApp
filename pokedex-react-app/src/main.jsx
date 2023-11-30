@@ -16,6 +16,10 @@ const router = createBrowserRouter([
     element: <App/>,
     children: [
       {
+        path: '/',
+        element: <Pokedex/>
+      },      
+      {
         path: "/pokemon/:pokemonId",
         element: <PokedexSearch/>
       }

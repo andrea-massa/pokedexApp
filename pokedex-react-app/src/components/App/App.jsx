@@ -19,10 +19,7 @@ import '../../../public/fonts.css'
 function App() {  
   return(
     <div className='container-fluid app'>
-        <Pokedex/>
-        <div>
-          <Outlet/>
-        </div>
+      <Outlet/>        
     </div>
   )
 }
