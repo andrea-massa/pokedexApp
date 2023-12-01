@@ -13,18 +13,18 @@ import PokemonEvolutionChain from "./PokemonEvolutionChain/PokemonEvolutionChain
 import PokemonStats from "./PokemonStats/PokemonStats"
 
 // Styles
-import "./PokemonPage.css"
+import "./Pokemon.css"
 
 
 
 // COMPONENT -> Renders Everything Associated with the Pokemon Data
-function PokemonPage(props){      
+function Pokemon(props){      
     // STATES
     const [evolutionChainEndpoint, setEvolutionChainEndpoint] = useState('');    
     
     // JSX
     return(
-        <div className="container-fluid pokemon-page">
+        <div className="pokemon container-fluid">
 
             <div className="container header-container">
                 <PokemonTitle 
@@ -78,4 +78,4 @@ function PokemonPage(props){
 
 
 
-export default PokemonPage
+export default Pokemon

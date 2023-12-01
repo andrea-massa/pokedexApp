@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 
 // Components
 import Pokedex from "../Routes/PokedexPage/PokedexPage"
-import PokedexSearch from '../Routes/PokemonPage/Pokemon'
+import PokedexSearch from '../Routes/PokemonPage/PokemonPage'
 
 // Styles
 import './App.css'

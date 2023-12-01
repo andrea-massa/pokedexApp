@@ -1,9 +1,9 @@
-.pokemon-page{
+.pokemon{
     position: relative;
     top: -50px;
     display: flex;
     flex-direction: column;  
 }
-    .pokemon-page .body-container{
+    .pokemon .body-container{
         margin-top: 20px;
     }

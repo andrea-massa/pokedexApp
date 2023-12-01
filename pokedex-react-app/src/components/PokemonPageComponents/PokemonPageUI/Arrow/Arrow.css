@@ -4,6 +4,7 @@
     transition: all 0.5s;
     color: lightblue;
     opacity: 0.5;
+    z-index: 5;
 }
     .arrow :hover, .arrow :active{
         transition: all 0.5s;

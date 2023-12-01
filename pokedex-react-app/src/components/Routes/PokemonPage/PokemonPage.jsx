@@ -1,16 +1,15 @@
 import React, {useState, useEffect} from "react"
 import { useParams, Link } from "react-router-dom"
-import './Pokemon.css'
+import './PokemonPage.css'
 
 import Loading from '../../Loading/Loading'
 import AppError from '../../AppError/AppError'
-import PokemonPage from '../../PokemonPageComponents/PokemonPage'
-import BackButton from "../../PokemonPageComponents/BackButton/BackButton"
-import Arrow from "../../PokemonPageComponents/Arrow/Arrow"
+import Pokemon from '../../PokemonPageComponents/Pokemon'
+import PokemonPageUI from "../../PokemonPageComponents/PokemonPageUI/PokemonPageUI"
 import SearchBar from "../../PokemonPageComponents/SearchBar/SearchBar"
 
 
-function Pokemon(){
+function PokemonPage(){
     const params = useParams();
     // STATES
     let [pokemonData, setPokemonData] = useState({})
@@ -67,19 +66,10 @@ function Pokemon(){
 
   // JSX
   return (
-    <div className='container-fluid pokedex-search '>      
+    <div className='container-fluid pokemon-page'>      
 
-      <div className='arrows-ui'>
-        <BackButton/>
-        <Arrow
-          current={params.pokemonId}
-          type="prev"
-        />
-        <Arrow
-          current={params.pokemonId}
-          type="next"        
-        />
-      </div>
+      <PokemonPageUI
+        current={params.pokemonId}/>
 
       {/* Renders App Error Component is app-error state is not null */}
       {appError !== null && <AppError errorTxt={appError.errorMessage}/>}
@@ -89,7 +79,7 @@ function Pokemon(){
 
       {/* Renders pokemon page if pokemon data is present and not loading state */}
       {pokemonData !== null && !isDataLoading && 
-        <PokemonPage 
+      <Pokemon
           pokemonData = {pokemonData}
         />
       }
@@ -98,4 +88,4 @@ function Pokemon(){
   )
 }
 
-export default Pokemon
+export default PokemonPage

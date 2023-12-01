@@ -1,0 +1,12 @@
+.pokemon-page-ui{
+    z-index: 3;        
+    width: 95%;
+    position: sticky;           
+    right: 2.5%; 
+    top: 50%;
+}
+    .pokemon-page-ui #arrows-ui{            
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+    }
