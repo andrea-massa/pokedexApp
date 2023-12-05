@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
+import { IoArrowBack } from "react-icons/io5"
+
+import "./BackButton.css"
+
+
 
 function BackButton(){
     return(
         <Link className="back-button btn btn-primary" to={'/'}>
-            Back
+            <IoArrowBack/> | Back
         </Link>        
     )    
 }

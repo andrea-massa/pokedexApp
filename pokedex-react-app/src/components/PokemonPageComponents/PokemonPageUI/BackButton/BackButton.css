@@ -1,0 +1,7 @@
+.back-button{
+    background: var(--ui-background-color);
+    border-radius: 50px;
+    border: none;
+    font-family: var(--mono-font);
+    font-size: 14pt;
+}

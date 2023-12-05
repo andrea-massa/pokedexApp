@@ -17,4 +17,7 @@
     --darkColor: #705746;
     --steelColor: #B7B7CE;
     --fairyColor: #D685AD;
+
+    --ui-background-color: linear-gradient(0deg, #0496A1 0%, #0A656B 42.22%, #164C50 100%);
+    
 }
