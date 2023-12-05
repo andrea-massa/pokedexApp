@@ -9,7 +9,7 @@
     font-family: var(--mono-font);
     font-size: 20pt;
     text-transform: uppercase;    
-    height: 75px;;
+    height: 75px;
 }   
     .navlink.expanded{
         padding-left: 15px;
