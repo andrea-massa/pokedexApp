@@ -1,0 +1,8 @@
+.hamburger-menu{    
+    color: white;
+    font-size: 50px;   
+    line-height: 0;
+}
+    .hamburger-menu:hover{
+        cursor: pointer;
+    }

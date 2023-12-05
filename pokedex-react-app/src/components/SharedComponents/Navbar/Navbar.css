@@ -1,0 +1,44 @@
+.navbar{
+    background: var(--ui-background-color);
+}
+
+/* Mobile view */
+@media only screen and (max-width: 992px) {
+    .navbar{
+      flex-direction: column;
+      justify-content: start;
+      align-items: end;      
+      height: 120px; 
+    }
+        .navbar.expanded{
+            height: 400px;                                    
+        }
+            .navbar.collapsed .navbar-links{
+                display: none;
+            }
+}
+
+
+
+/* Desktop view */
+@media only screen and (min-width: 992px) {
+    .navbar {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;         
+    }  
+        .navbar.expanded{
+            width: 340px;
+        }
+            .navbar.expanded .hamburger-menu-container{
+                width: 90%;
+                text-align: right;
+            }
+        .navbar.collapsed{
+            width: 120px;
+        }
+            .navbar.collapsed .hamburger-menu-container{
+                width: 90%;
+                text-align: center;
+            }
+}
