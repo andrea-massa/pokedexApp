@@ -1,0 +1,37 @@
+.navlink{    
+    color: white;
+    background-color: #04939E;
+    border-radius: 15px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    font-family: var(--mono-font);
+    font-size: 20pt;
+    text-transform: uppercase;    
+    height: 75px;;
+}   
+    .navlink.expanded{
+        padding-left: 15px;
+        justify-content: left;
+    }
+    .navlink .icon{
+        font-size: 50px;                
+        padding-bottom: 15px;
+    }
+
+
+
+    /* Mobile View */
+    @media only screen and (max-width: 992px) {
+        .navlink{
+            font-size: 15pt;
+            height: 50px;
+        }
+        .navlink.expanded{
+            align-self: center;
+        }
+        .navlink .icon{
+            font-size: 40px;
+        }
+    }
