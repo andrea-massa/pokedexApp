@@ -69,7 +69,7 @@ function PokedexPage(){
 
 
     return(
-        <div id="pokedex-page" className='container border'>
+        <div id="pokedex-page" className='container'>
 
             {!isDataLoading !== null && allPokemonData !== null?
                 appError == null ?            

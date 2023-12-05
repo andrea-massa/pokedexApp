@@ -18,7 +18,7 @@ import '../../../public/fonts.css'
 // ROOT COMPONENT
 function App() {  
   return(
-    <div className='container-fluid app'>
+    <div className='app'>
       <Outlet/>        
     </div>
   )

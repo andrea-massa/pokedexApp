@@ -1,5 +1,4 @@
 .app{
-    min-height: 100vh;
     background: linear-gradient(-45deg, #8D7AFF, rgba(168, 154, 255, 0.95), rgba(206, 198, 255, 0.88));
     background-size: 400% 400%;
     animation: gradient 5s ease infinite;
