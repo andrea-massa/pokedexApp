@@ -1,7 +1,7 @@
 // IMPORTS
 // Hooks
 import React from 'react'
-import { useState } from 'react'
+import { useState, createContext } from 'react'
 
 // Components
 import Navbar from "../SharedComponents/Navbar/Navbar"
@@ -13,17 +13,25 @@ import '../../../public/fonts.css'
 
 
 
+export const NavbarExpandedContext = createContext(null);
+
 // ROOT COMPONENT
-function App() {  
+export default function App() {  
+  const [isNavbarExpanded, setIsNavbarExpanded] = useState(false)
+
+  function handleNavbarOnExpand(value){
+    setIsNavbarExpanded(value)    
+  }
+
   return(
     <div className='app d-flex flex-column flex-lg-row'>
-      <Navbar/>      
-      <Outlet/>        
+      <Navbar
+        onExpand={handleNavbarOnExpand}/>      
+      <NavbarExpandedContext.Provider value={isNavbarExpanded}>
+        <Outlet/>        
+      </NavbarExpandedContext.Provider>      
     </div>
   )
 }
 
-
-
-export default App
 
