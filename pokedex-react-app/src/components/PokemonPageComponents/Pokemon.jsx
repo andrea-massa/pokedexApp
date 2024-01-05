@@ -24,7 +24,7 @@ function Pokemon(props){
     
     // JSX
     return(
-        <div className="pokemon container-fluid">
+        <div className={`pokemon container-fluid ${props.isNavbarExpanded && 'high-margin'}`}>
 
             <div className="container header-container">
                 <PokemonTitle 

@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from "react"
+import React, {useState, useEffect, useContext} from "react"
 import { useParams, Link } from "react-router-dom"
-import './PokemonPage.css'
+
+import { NavbarExpandedContext } from "../../App/App"
 
 import Loading from '../../Loading/Loading'
 import AppError from '../../AppError/AppError'
@@ -8,9 +9,16 @@ import Pokemon from '../../PokemonPageComponents/Pokemon'
 import PokemonPageUI from "../../PokemonPageComponents/PokemonPageUI/PokemonPageUI"
 import SearchBar from "../../PokemonPageComponents/SearchBar/SearchBar"
 
+import './PokemonPage.css'
+
+
 
 function PokemonPage(){
     const params = useParams();
+
+    // Contexts
+    const isNavbarExpanded = useContext(NavbarExpandedContext);
+
     // STATES
     let [pokemonData, setPokemonData] = useState({})
     let [isDataLoading, setIsDataLoading] = useState(true);
@@ -81,6 +89,7 @@ function PokemonPage(){
       {pokemonData !== null && !isDataLoading && 
       <Pokemon
           pokemonData = {pokemonData}
+          isNavbarExpanded = {isNavbarExpanded}
         />
       }
 
