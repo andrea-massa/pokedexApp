@@ -1,5 +1,5 @@
-import {useState, useEffect} from "react"
-
+import {useState, useEffect, useContext} from "react"
+import { NavbarExpandedContext } from "../../App/App"
 
 import Loading from "../../Loading/Loading"
 import AppError from "../../AppError/AppError"
@@ -11,6 +11,7 @@ import "./PokedexPage.css"
 
 
 function PokedexPage(){    
+    const isNavbarExpanded = useContext(NavbarExpandedContext);
     const [endpoints, setEndpoints] = useState({prev: null, current: 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=40', next: null})
     const [paginationOptions, setPaginationOptions] = useState({offset: 0, limit: 40})
     const [allPokemonData, setAllPokemonData] = useState(null)
@@ -19,7 +20,6 @@ function PokedexPage(){
 
 
     async function getAllPokemonData(){        
-        console.log('Calling endpoiint ' + endpoints.current)
         let response = await fetch(endpoints.current);
         let jsonData = await response.json()
         return jsonData
@@ -74,7 +74,8 @@ function PokedexPage(){
             {!isDataLoading !== null && allPokemonData !== null?
                 appError == null ?            
                     <PokedexList
-                        allPokemonData={allPokemonData}/>
+                        allPokemonData={allPokemonData}
+                        isNavbarExpanded={isNavbarExpanded}/>
                     :
                     <AppError errorTxt={appError}/>
                     :

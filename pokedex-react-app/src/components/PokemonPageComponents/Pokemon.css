@@ -7,3 +7,16 @@
     .pokemon .body-container{
         margin-top: 20px;
     }
+ 
+
+@media only screen and (max-width: 992px){
+    .pokemon{
+        transition: all 100ms linear;
+        margin-top: 50px;
+    }    
+    .pokemon.high-margin{
+        transition: all 100ms linear;
+        margin-top: 150px;
+    }    
+}
+    

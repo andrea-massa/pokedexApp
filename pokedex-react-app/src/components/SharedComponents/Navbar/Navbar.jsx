@@ -9,7 +9,7 @@ import "./Navbar.css"
 
 
 
-export default function Navbar(){
+export default function Navbar({onExpand}){
     const [isExpanded, setIsExpanded] = useState(false)
     const [activeLinks, setActiveLinks] = useState(
         [
@@ -25,12 +25,11 @@ export default function Navbar(){
     )
 
     function handleHamburgerMenuClick(){
-        isExpanded ? setIsExpanded(false) : setIsExpanded(true)
+        isExpanded ? setIsExpanded(false) : setIsExpanded(true)       
     }
 
     function handleLinkClick(name){
-        setActiveLinks((prevState) => {
-            console.log(prevState.find((e) => e.name == name))
+        setActiveLinks((prevState) => {            
             return [...prevState, {name: name, data: {isActive: true}}]
         })
         console.log(activeLinks)
@@ -41,7 +40,10 @@ export default function Navbar(){
         <nav className={`navbar ${isExpanded ? 'expanded' : 'collapsed'}`}>            
             <div className="hamburger-menu-container">
                 <HamburgerMenu
-                    handleClick={handleHamburgerMenuClick}
+                    handleClick={() => {
+                        onExpand(!isExpanded)
+                        handleHamburgerMenuClick()
+                    }}
                     isExpanded={isExpanded}
                 />
             </div>            
