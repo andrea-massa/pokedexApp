@@ -3,6 +3,7 @@ import { CiSearch } from "react-icons/ci";
 
 import HamburgerMenu from "./HamburgerMenu/HamburgerMenu"
 import NavLink from "./NavLink/NavLink"
+import SearchBar from "./NavLink/SearchBar/SearchBar";
 
 import "./Navbar.css"
 
@@ -10,15 +11,29 @@ import "./Navbar.css"
 
 export default function Navbar(){
     const [isExpanded, setIsExpanded] = useState(false)
-
+    const [activeLinks, setActiveLinks] = useState(
+        [
+            {
+                name: 'search-bar',            
+                data: 
+                {                    
+                    isActive: false,
+                    activeComponent: <SearchBar/>
+                }
+            }
+        ]
+    )
 
     function handleHamburgerMenuClick(){
-        if(isExpanded === true){
-            setIsExpanded(false)        
-        }
-        else if (isExpanded === false){
-            setIsExpanded(true)
-        }
+        isExpanded ? setIsExpanded(false) : setIsExpanded(true)
+    }
+
+    function handleLinkClick(name){
+        setActiveLinks((prevState) => {
+            console.log(prevState.find((e) => e.name == name))
+            return [...prevState, {name: name, data: {isActive: true}}]
+        })
+        console.log(activeLinks)
     }
 
 
@@ -32,9 +47,11 @@ export default function Navbar(){
             </div>            
             <ul className={`navbar-links  ${isExpanded ? 'links-expanded' : 'links-collapsed'}`}>
                 <NavLink 
+                    callBackClick={handleLinkClick}
                     isExpanded={isExpanded}
-                    label="Poke Search"
-                    icon={<CiSearch/>}/>
+                    label="Search"                    
+                    icon={<CiSearch/>}
+                    activeData={activeLinks.find((e) => e.name == 'search-bar')}/>
             </ul>
         </nav>       
     )
