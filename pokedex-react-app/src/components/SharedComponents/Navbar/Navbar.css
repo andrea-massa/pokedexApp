@@ -38,20 +38,35 @@
       position: fixed;      
       height: 100%;      
     }  
+        .nav-header{
+            border-bottom: 1px groove white;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            width: 85%;
+        }
         .navbar.expanded{
             width: 340px;
-        }
-            .navbar.expanded .hamburger-menu-container{
-                width: 90%;
-                text-align: right;
+        }            
+            .navbar.expanded .nav-header{
+                display: flex;
+                flex-direction: row-reverse;                
+                justify-content: space-between;                
             }
         .navbar.collapsed{
             width: 120px;
         }
-            .navbar.collapsed .hamburger-menu-container{
+            .navbar-collapsed .nav-header{
                 width: 90%;
-                text-align: center;
+                display: flex;
+                flex-direction: column;                
             }
+                .navbar.collapsed .hamburger-menu-container{                    
+                    text-align: center;
+                }
+                .navbar.collapsed .back-button-container{
+                    text-align: center;
+                    margin-top: 20px;
+                }
 }
 
 
