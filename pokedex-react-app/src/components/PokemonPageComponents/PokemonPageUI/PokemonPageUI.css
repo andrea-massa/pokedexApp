@@ -4,11 +4,6 @@
     width: 95%; 
     top: 50vh;
 }
-    .pokemon-page-ui #back-button-container{
-        position: relative;
-        bottom: 450px;
-        right: 30px;
-    }
     .pokemon-page-ui #arrows-ui{
         position: relative; 
         top: 50%;     
