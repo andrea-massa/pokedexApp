@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom"
-import { IoArrowBack } from "react-icons/io5"
+import { IoArrowBack, IoConstructOutline } from "react-icons/io5"
 
 import "./BackButton.css"
 
 
 
-function BackButton(){
+function BackButton({currentPokemonNumber}){
     return(
         <Link className="back-button btn btn-primary" to={'/'}>
             <IoArrowBack/> | Back

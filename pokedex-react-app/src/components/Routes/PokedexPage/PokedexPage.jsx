@@ -82,7 +82,7 @@ function PokedexPage(){
                 <Loading/>                
             }
 
-            <div className="container-lg border" id="pagination-container">
+            <div className="container-lg" id="pagination-container">
                 <PokedexPagination
                     getNext = {nextEndpoint}                    
                     getPrev = {prevEndpoint}
