@@ -53,8 +53,7 @@ export default function Navbar({onExpand}){
                 </div>            
                 {currentPath != "/" && 
                     <div className="back-button-container">
-                        <BackButton
-                            currentPokemonNumber={currentPath.split('/')[2]}/>
+                        <BackButton/>
                     </div>}
             </div>                    
             <ul className={`navbar-links  ${isExpanded ? 'links-expanded' : 'links-collapsed'}`}>

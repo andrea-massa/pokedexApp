@@ -5,6 +5,7 @@ import { useState, createContext } from 'react'
 
 // Components
 import Navbar from "../SharedComponents/Navbar/Navbar"
+import PokedexPage from '../Routes/PokedexPage/PokedexPage'
 import {Outlet, Link} from "react-router-dom"
 
 // Styles
@@ -26,8 +27,9 @@ export default function App() {
   return(
     <div className='app d-flex flex-column flex-lg-row'>
       <Navbar
-        onExpand={handleNavbarOnExpand}/>      
+        onExpand={handleNavbarOnExpand}/>              
       <NavbarExpandedContext.Provider value={isNavbarExpanded}>
+        <PokedexPage/>
         <Outlet/>        
       </NavbarExpandedContext.Provider>      
     </div>

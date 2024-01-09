@@ -5,7 +5,7 @@ import "./BackButton.css"
 
 
 
-function BackButton({currentPokemonNumber}){
+function BackButton(){
     return(
         <Link className="back-button btn btn-primary" to={'/'}>
             <IoArrowBack/> | Back
