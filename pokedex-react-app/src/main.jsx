@@ -10,6 +10,7 @@ import PokemonPage from './components/Routes/PokemonPage/PokemonPage.jsx'
 import './index.css'
 
 
+
 const router = createBrowserRouter([
   {
     path: '/',

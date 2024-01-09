@@ -1,9 +1,10 @@
 import PokedexEntry from "../PokedexEntry/PokedexEntry"
+import "./PokedexList.css"
 
-function PokedexList(props){
+function PokedexList({isNavbarExpanded, allPokemonData}){
     return(
-        <ol id="pokedex-list">                
-            {props.allPokemonData.map((pokemon, index) => {
+        <ol id="pokedex-list" className={isNavbarExpanded && 'high-margin'}>                
+            {allPokemonData.map((pokemon, index) => {
                 if(pokemon.url.split('/')[6] <= 1008){
                     return(                    
                         <PokedexEntry

@@ -11,7 +11,7 @@ import "./Navbar.css"
 
 
 
-export default function Navbar(){    
+export default function Navbar({onExpand}){
     const currentPath = useLocation().pathname;
     const [isExpanded, setIsExpanded] = useState(false)
     const [activeLinks, setActiveLinks] = useState(
@@ -28,12 +28,11 @@ export default function Navbar(){
     )
 
     function handleHamburgerMenuClick(){
-        isExpanded ? setIsExpanded(false) : setIsExpanded(true)
+        isExpanded ? setIsExpanded(false) : setIsExpanded(true)       
     }
 
     function handleLinkClick(name){
-        setActiveLinks((prevState) => {
-            console.log(prevState.find((e) => e.name == name))
+        setActiveLinks((prevState) => {            
             return [...prevState, {name: name, data: {isActive: true}}]
         })
         console.log(activeLinks)
@@ -44,10 +43,13 @@ export default function Navbar(){
         <nav className={`navbar ${isExpanded ? 'expanded' : 'collapsed'}`}>    
             <div className="nav-header">
                 <div className="hamburger-menu-container">
-                    <HamburgerMenu
-                        handleClick={handleHamburgerMenuClick}
-                        isExpanded={isExpanded}
-                    />                
+                  <HamburgerMenu
+                      handleClick={() => {
+                          onExpand(!isExpanded)
+                          handleHamburgerMenuClick()
+                      }}
+                      isExpanded={isExpanded}
+                  />           
                 </div>            
                 {currentPath != "/" && 
                     <div className="back-button-container">
