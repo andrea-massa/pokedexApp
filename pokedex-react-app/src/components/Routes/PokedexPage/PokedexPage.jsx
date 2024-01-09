@@ -1,5 +1,6 @@
 import {useState, useEffect, useContext} from "react"
 import { NavbarExpandedContext } from "../../App/App"
+import { useLocation } from "react-router-dom"
 
 import Loading from "../../Loading/Loading"
 import AppError from "../../AppError/AppError"
@@ -11,6 +12,7 @@ import "./PokedexPage.css"
 
 
 function PokedexPage(){    
+    const path = useLocation().pathname;
     const isNavbarExpanded = useContext(NavbarExpandedContext);
     const [endpoints, setEndpoints] = useState({prev: null, current: 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=40', next: null})
     const [paginationOptions, setPaginationOptions] = useState({offset: 0, limit: 40})
@@ -69,7 +71,7 @@ function PokedexPage(){
 
 
     return(
-        <div id="pokedex-page" className='container'>
+        <div id="pokedex-page" className={`container ${path === '/' ? 'show' : 'hide'}`}>
 
             {!isDataLoading !== null && allPokemonData !== null?
                 appError == null ?            
@@ -82,7 +84,7 @@ function PokedexPage(){
                 <Loading/>                
             }
 
-            <div className="container-lg border" id="pagination-container">
+            <div className="container-lg" id="pagination-container">
                 <PokedexPagination
                     getNext = {nextEndpoint}                    
                     getPrev = {prevEndpoint}
