@@ -9,12 +9,8 @@ function PokemonPageUI({current}){
     return(
         <div className="container-fluid pokemon-page-ui">
             <div id='arrows-ui'>
-                <Arrow
-                    current={current}
-                    type="prev"/>
-                <Arrow
-                    current={current}
-                    type="next"/>
+                {current > 1 && <Arrow current={current} type="prev"/>}                
+                {current < 1008 && <Arrow current={current} type="next"/>}                
             </div>
         </div>
     )
