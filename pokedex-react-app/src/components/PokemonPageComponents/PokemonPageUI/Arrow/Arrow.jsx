@@ -8,13 +8,13 @@ import "./Arrow.css"
 
 
 // COMPONENT
-function Arrow(props){
+function Arrow({current, type}){
     // JSX
     return(
         <Link 
-            className={`arrow ${props.type === "next" ? "right-arrow" : "left-arrow"}`} 
-            to={props.type === "next" ? `/pokemon/${parseInt(props.current) + 1}` : `/pokemon/${parseInt(props.current) - 1}`}>            
-            {props.type === "next" ? <RiArrowDropRightLine/> : <RiArrowDropLeftLine/>}
+            className={`arrow ${type === "next" ? "right-arrow" : "left-arrow"}`} 
+            to={type === "next" ? `/pokemon/${parseInt(current) + 1}` : `/pokemon/${parseInt(current) - 1}`}>            
+            {type === "next" ? <RiArrowDropRightLine/> : <RiArrowDropLeftLine/>}
         </Link>
     )
 }

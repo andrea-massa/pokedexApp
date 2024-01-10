@@ -1,4 +1,5 @@
 .arrow{
+    position: relative;
     cursor: pointer;
     font-size: 60px;
     transition: all 0.5s;
@@ -12,11 +13,13 @@
         opacity: 1;
         scale: 1.5;
     }
-        .right-arrow{
-            position: relative;
-            left: 25px;
+        .right-arrow{              
+            margin-left: auto;
         }
-        .left-arrow{
-            position: relative;
-            right: 25px;
+        .left-arrow{         
+            margin-right: auto;
         }
+
+.hidden{
+    display: none;
+}
