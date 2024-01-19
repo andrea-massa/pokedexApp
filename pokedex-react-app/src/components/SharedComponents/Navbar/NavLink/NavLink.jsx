@@ -4,18 +4,10 @@ import "./NavLink.css"
 
 
 
-export default function NavLink({label, icon, activeData, isExpanded, callBackClick}){    
+export default function NavLink({name, label, icon, isExpanded, isActive, activateLink, children}){    
 
     function handleClick(){
-        // if(isActive){
-        //     isExpanded && callBackClick()
-        //     setIsActive(false)
-        // }
-        // if(!isActive){
-        //     !isExpanded && callBackClick()
-        //     setIsActive(true)
-        // }
-        callBackClick(activeData.name)
+        activateLink(name)
     }    
 
     return(
@@ -24,8 +16,9 @@ export default function NavLink({label, icon, activeData, isExpanded, callBackCl
             }}                
             className={`navlink ${isExpanded ? 'expanded' : 'collapsed'}`}
             >
-            {activeData.isActive ? activeData.activeComponent : <span className="icon">{icon}</span>}            
-            {isExpanded && <span className="label">{label}</span>}                
+            <span className="icon">{icon}</span>
+            {isExpanded && <span className="label">{label}</span>}      
+            {isActive && children}
         </li>   
     )
 }

@@ -14,28 +14,20 @@ import "./Navbar.css"
 export default function Navbar({onExpand}){
     const currentPath = useLocation().pathname;
     const [isExpanded, setIsExpanded] = useState(false)
-    const [activeLinks, setActiveLinks] = useState(
-        [
-            {
-                name: 'search-bar',            
-                data: 
-                {                    
-                    isActive: false,
-                    activeComponent: <SearchBar/>
-                }
-            }
-        ]
-    )
+    const [activeLinks, setActiveLinks] = useState([]) 
 
     function handleHamburgerMenuClick(){
-        isExpanded ? setIsExpanded(false) : setIsExpanded(true)       
+        isExpanded ? setIsExpanded(false) : setIsExpanded(true)    
+        setActiveLinks([])   
     }
 
     function handleLinkClick(name){
-        setActiveLinks((prevState) => {            
-            return [...prevState, {name: name, data: {isActive: true}}]
-        })
-        console.log(activeLinks)
+        setIsExpanded(true)
+        if(!activeLinks.includes(name)){
+            setActiveLinks((prevState) => {            
+                return [...prevState, name]
+            })
+        }
     }
 
 
@@ -57,12 +49,15 @@ export default function Navbar({onExpand}){
                     </div>}
             </div>                    
             <ul className={`navbar-links  ${isExpanded ? 'links-expanded' : 'links-collapsed'}`}>
-                <NavLink 
-                    callBackClick={handleLinkClick}
+                <NavLink
+                    activateLink={handleLinkClick}
                     isExpanded={isExpanded}
-                    label="Search"                    
+                    label="Search"
+                    name="search-link"                    
                     icon={<CiSearch/>}
-                    activeData={activeLinks.find((e) => e.name == 'search-bar')}/>
+                    isActive={activeLinks.includes('search-link')}>
+                    <SearchBar/>
+                </NavLink>
             </ul>
         </nav>       
     )
