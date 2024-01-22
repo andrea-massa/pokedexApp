@@ -19,11 +19,6 @@ export default function Search(){
         return jsonData
     }
 
-    // Function that is passed as a prop to handle the search bar change
-    function handleSearchBarChange(value){
-        setSearchQuery(value);        
-    }
-
     // Use Effect calls the PokeApi and gets all the Pokemon Data and 
     // stores it into the allPokemon variable
     useEffect(() => {
@@ -36,6 +31,10 @@ export default function Search(){
         })
     }, [])
 
+    // Function that is passed as a prop to handle the search bar change
+    function handleSearchBarChange(value){
+        setSearchQuery(value);        
+    }
 
 
 
@@ -43,7 +42,6 @@ export default function Search(){
         <div className="search">            
             <SearchBar
                 onChange={handleSearchBarChange}/>
-            <p>{searchQuery}</p>
         </div>
     )
 }
