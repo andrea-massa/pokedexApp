@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import HamburgerMenu from "./HamburgerMenu/HamburgerMenu"
 import BackButton from "./BackButton/BackButton";
 import NavLink from "./NavLink/NavLink"
-import SearchBar from "./NavLink/SearchBar/SearchBar";
+import Search from "./NavLink/Search/Search";
 
 import "./Navbar.css"
 
@@ -56,7 +56,7 @@ export default function Navbar({onExpand}){
                     name="search-link"                    
                     icon={<CiSearch/>}
                     isActive={activeLinks.includes('search-link')}>
-                    <SearchBar/>
+                    <Search/>
                 </NavLink>
             </ul>
         </nav>       
