@@ -11,6 +11,8 @@ export default function Search(){
     let [allPokemon, setAllPokemon] = useState([]);
     // Current Search Query State
     let [searchQuery, setSearchQuery] = useState('');
+    // Current Matches
+    let [matches, setMatches] = useState([]);
 
     // Async function that calls the API 
     async function getAllPokemonData(){
@@ -19,12 +21,18 @@ export default function Search(){
         return jsonData
     }
 
+    // Formats pokemon data from API data to just array
+    // with name of every single pokemon
+    function formatPokemonData(data){
+        return data.map((el) => el.name)
+    }
+
     // Use Effect calls the PokeApi and gets all the Pokemon Data and 
     // stores it into the allPokemon variable
     useEffect(() => {
         getAllPokemonData()
         .then((data) => {
-            setAllPokemon(data.results)
+            setAllPokemon(formatPokemonData(data.results))
         })
         .catch(error => {
             console.log('Error getting Pokemon Data from the API')
@@ -33,7 +41,10 @@ export default function Search(){
 
     // Function that is passed as a prop to handle the search bar change
     function handleSearchBarChange(value){
-        setSearchQuery(value);        
+        let matchesArr = allPokemon.filter((el) => {
+            return el.includes(value)            
+        });                
+        setMatches(matchesArr)
     }
 
 
