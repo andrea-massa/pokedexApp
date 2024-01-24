@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import SearchBar from "./SearchBar/SearchBar"
+import SearchResults from "./SearchResults/SearchResults";
 
 import "./Search.css"
 
@@ -41,9 +42,13 @@ export default function Search(){
 
     // Function that is passed as a prop to handle the search bar change
     function handleSearchBarChange(value){
-        let matchesArr = allPokemon.filter((el) => {
-            return el.includes(value)            
-        });                
+        setSearchQuery(value);
+        let matchesArr = []
+        if(value !== ''){
+            matchesArr = allPokemon.filter((el) => {
+                return el.includes(value)            
+            });                
+        }
         setMatches(matchesArr)
     }
 
@@ -53,6 +58,9 @@ export default function Search(){
         <div className="search">            
             <SearchBar
                 onChange={handleSearchBarChange}/>
+            <SearchResults            
+                query={searchQuery}
+                matches={matches.slice(0, 5)}/>
         </div>
     )
 }
