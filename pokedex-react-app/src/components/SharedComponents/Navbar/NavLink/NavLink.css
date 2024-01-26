@@ -7,8 +7,14 @@
     font-size: 20pt;
     text-transform: uppercase;
     text-align: center;    
-    padding: 0px !important;
-}   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+    .navlink.expanded{
+        padding: 10px;
+        justify-content: left;
+    }   
     .navlink-header{
         display: flex;
         justify-content: start;
@@ -19,10 +25,6 @@
             font-size: 50px;                
             padding-bottom: 15px;
         }
-    .navlink.expanded{
-        padding-left: 15px;
-        justify-content: left;
-    }
 
 
 
@@ -30,7 +32,7 @@
     /* Mobile View */
     @media only screen and (max-width: 992px) {
         .navlink{
-            font-size: 15pt;
+            font-size: 20pt;
         }
         .navlink.expanded{
             align-self: center;

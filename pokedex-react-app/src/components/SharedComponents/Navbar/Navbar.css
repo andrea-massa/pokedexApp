@@ -54,7 +54,7 @@
         }
         .navbar.expanded{
             transition: all 100ms linear;
-            width: 340px;
+            width: 35%;
         }            
             .navbar.expanded .nav-header{
                 display: flex;
