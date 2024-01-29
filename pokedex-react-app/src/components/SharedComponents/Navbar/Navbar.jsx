@@ -30,6 +30,14 @@ export default function Navbar({onExpand}){
         }
     }
 
+    function handleLinkDeactivate(name){        
+        if(activeLinks.includes(name)){
+            setActiveLinks((prevState) => {            
+                return [...prevState.filter(e => e !== name)]
+            })
+        }
+    }
+
 
     return(         
         <nav className={`navbar ${isExpanded ? 'expanded' : 'collapsed'}`}>    
@@ -51,6 +59,7 @@ export default function Navbar({onExpand}){
             <ul className={`navbar-links  ${isExpanded ? 'links-expanded' : 'links-collapsed'}`}>
                 <NavLink
                     activateLink={handleLinkClick}
+                    deactivateLink={handleLinkDeactivate}
                     isExpanded={isExpanded}
                     label="Search"
                     name="search-link"                    

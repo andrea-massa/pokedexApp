@@ -1,24 +1,44 @@
 import { useState } from "react"
 
+import { RiArrowDropDownLine, RiArrowDropUpLine } from "react-icons/ri";
+
 import "./NavLink.css"
 
 
 
-export default function NavLink({name, label, icon, isExpanded, isActive, activateLink, children}){    
+export default function NavLink({name, label, icon, isExpanded, isActive, activateLink, deactivateLink, children}){    
 
-    function handleClick(){
-        activateLink(name)
+    function handleDropDownClick(){
+        if(!isActive){
+            activateLink(name)
+        }        
     }    
+    
+    function handleDropUpClick(){
+        if(isActive){
+            console.log('Deactivating the Link')
+            deactivateLink(name)
+        }
+    }
+
 
     return(
         <li onClick={() => {                
-                handleClick()
+                handleDropDownClick()
             }}                
-            className={`navlink ${isExpanded ? 'expanded' : 'collapsed'}`}
+            className={`navlink ${isExpanded ? 'expanded' : 'collapsed'} ${isActive ? 'active' : 'non-active'}`}
             >
-            <span className="icon">{icon}</span>
-            {isExpanded && <span className="label">{label}</span>}      
-            {isActive && children}
+                <div className="navlink-header">
+                    <span className="icon">{icon}</span>
+                    {isExpanded && <span className="label">{label}</span>}
+                    {!isActive && <RiArrowDropDownLine/>}      
+                </div>
+                <div className="navlink-content">
+                    {isActive && 
+                        <>
+                            {children} <RiArrowDropUpLine onClick={()=> handleDropUpClick()}/>
+                        </>}
+                </div>
         </li>   
     )
 }
