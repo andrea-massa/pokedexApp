@@ -1,0 +1,17 @@
+.search-results{
+    text-transform: none;
+    text-align: left;
+}
+    .query-section{
+        margin: 50px 20px;        
+        padding-top: 10px;
+        border-top: groove white;
+        text-indent: 20px;
+    }
+    .matches-list{
+        border: solid blue;
+        display: flex;
+        flex-direction: column;
+        
+        overflow-x: hidden;        
+    }
