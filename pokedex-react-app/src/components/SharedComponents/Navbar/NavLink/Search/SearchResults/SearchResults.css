@@ -1,17 +1,18 @@
 .search-results{
     text-transform: none;
-    text-align: left;
+    text-align: left;    
 }
     .query-section{
-        margin: 50px 20px;        
+        margin: 50px 20px 20px 20px;                
         padding-top: 10px;
         border-top: groove white;
         text-indent: 20px;
+        
     }
     .matches-list{
-        border: solid blue;
+        margin-top: 0px;
+
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: column;        
         overflow-x: hidden;        
     }

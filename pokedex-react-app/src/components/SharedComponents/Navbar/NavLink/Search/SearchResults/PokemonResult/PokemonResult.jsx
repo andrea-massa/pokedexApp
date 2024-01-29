@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 
+import "./PokemonResult.css"
 
 
 export default function PokemonResult({name}){    
@@ -24,7 +25,7 @@ export default function PokemonResult({name}){
             name: resultData.name,
             id: resultData.id,
             imageUrl: resultData.sprites.front_default,
-            path: `pokemon/${resultData.id}`            
+            path: `/pokemon/${resultData.id}`            
         }
     }
 
@@ -44,7 +45,7 @@ export default function PokemonResult({name}){
     return(
         <li className="pokemon-result">
             {pokemonData !== null &&
-                <a href={pokemonData.path}>
+                <a className="pokemonData" href={pokemonData.path}>
                     <span className="pokemonId">{pokemonData.id} </span>
                     <span className="pokemonName">{pokemonData.name}</span>       
                     <img className="pokemonImage" src={pokemonData.imageUrl} alt={pokemonData.name}/>                                        
