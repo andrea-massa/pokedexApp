@@ -6,17 +6,27 @@ import "./NavLink.css"
 
 
 
-export default function NavLink({name, label, icon, isExpanded, isActive, activateLink, children}){    
+export default function NavLink({name, label, icon, isExpanded, isActive, activateLink, deactivateLink, children}){    
 
     function handleDropDownClick(){
-        activateLink(name)
+        if(!isActive){
+            activateLink(name)
+        }        
     }    
+    
+    function handleDropUpClick(){
+        if(isActive){
+            console.log('Deactivating the Link')
+            deactivateLink(name)
+        }
+    }
+
 
     return(
         <li onClick={() => {                
                 handleDropDownClick()
             }}                
-            className={`navlink ${isExpanded ? 'expanded' : 'collapsed'}`}
+            className={`navlink ${isExpanded ? 'expanded' : 'collapsed'} ${isActive ? 'active' : 'non-active'}`}
             >
                 <div className="navlink-header">
                     <span className="icon">{icon}</span>
@@ -24,7 +34,10 @@ export default function NavLink({name, label, icon, isExpanded, isActive, activa
                     {!isActive && <RiArrowDropDownLine/>}      
                 </div>
                 <div className="navlink-content">
-                    {isActive && <>{children} <RiArrowDropUpLine onClick={()=> console.log('clicked')}/></>}
+                    {isActive && 
+                        <>
+                            {children} <RiArrowDropUpLine onClick={()=> handleDropUpClick()}/>
+                        </>}
                 </div>
         </li>   
     )
