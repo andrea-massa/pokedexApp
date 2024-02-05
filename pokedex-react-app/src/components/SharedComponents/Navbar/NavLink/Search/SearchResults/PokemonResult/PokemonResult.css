@@ -1,13 +1,11 @@
 .pokemon-result{    
-    transition: all 1s linear;
     text-align: start;
     text-indent: 20px;        
     font-size: 16pt;    
     height: 75px;
+    transition: left 1s linear 100ms;
 }
-.pokemon-result:hover{
-    transition: all 1s linear;
-    border-bottom: white solid;
+.pokemon-result:hover{    
     position: relative;
     left: 20px;
 }
