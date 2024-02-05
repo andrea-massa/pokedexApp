@@ -1,15 +1,17 @@
 .app{
-    min-height: 100vh;
-}
-@media screen and (min-width: 992px){
-    .app{
-        background: linear-gradient(180deg, #E40E0E 0%, #3A0E0E 50%, #d3d3d3 100%);
-    }
+    background: linear-gradient(-45deg, #8D7AFF, rgba(168, 154, 255, 0.95), rgba(206, 198, 255, 0.88));
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
 }
 
-@media screen and (max-width: 992px){
-    .app{
-        background: linear-gradient(180deg, #E40E0E 0%, #3A0E0E 85%, #d3d3d3 100%);
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
     }
 }
-

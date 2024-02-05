@@ -1,0 +1,95 @@
+.navbar{
+    background: var(--ui-background-color);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);    
+    z-index: 5;    
+    display: flex;
+}
+     .navbar ul{
+        list-style: none;
+        margin: 0;
+        margin-top: 50px;
+        padding: 0;
+        text-align: center;        
+        width: 100%;
+        padding: 0 5% 5% 5%;
+     }
+
+/* Mobile view */
+@media only screen and (max-width: 992px) {
+    .navbar{
+      flex-direction: column;
+      justify-content: start;
+      align-items: end;      
+      position: fixed;      
+      top: 0;
+      width: 100%;
+    }
+        .navbar .nav-header{
+            margin: auto;
+            width: 95%;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+            .navbar.collapsed .navbar-links{
+                display: none;
+            }
+}
+
+
+
+/* Desktop view */
+@media only screen and (min-width: 992px) {
+    .navbar {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;         
+      position: fixed;      
+      min-height: 100%;            
+    }  
+        .nav-header{
+            border-bottom: 1px groove white;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+            width: 85%;
+        }
+        .navbar.expanded{
+            transition: all 100ms linear;
+            width: 35%;
+        }            
+            .navbar.expanded .nav-header{
+                display: flex;
+                flex-direction: row-reverse;                
+                justify-content: space-between;                
+            }
+            .navbar.expanded .navbar-links{
+                display: flex;
+                flex-direction: column;
+            }
+        .navbar.collapsed{
+            transition: all 100ms linear;
+            width: 120px;
+        }
+            .navbar-collapsed .nav-header{
+                width: 90%;
+                display: flex;
+                flex-direction: column;                
+            }
+                .navbar.collapsed .hamburger-menu-container{                    
+                    text-align: center;
+                }
+                .navbar.collapsed .back-button-container{
+                    text-align: center;
+                    margin-top: 20px;
+                }
+}
+
+
+
+/* Transitions and Animations */
+.navbar.expanded{
+    transition: all 100ms linear;
+}
+.navbar.collapsed{
+    transition: all 100ms linear;
+}

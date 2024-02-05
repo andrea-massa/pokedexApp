@@ -1,10 +1,12 @@
 // IMPORTS
 // Hooks
 import React from 'react'
-import { useEffect, useState } from 'react'
+import { useState, createContext } from 'react'
 
 // Components
-import PokedexSearch from '../PokedexSearch/PokedexSearch'
+import Navbar from "../SharedComponents/Navbar/Navbar"
+import PokedexPage from '../Routes/PokedexPage/PokedexPage'
+import {Outlet, Link} from "react-router-dom"
 
 // Styles
 import './App.css'
@@ -12,15 +14,26 @@ import '../../../public/fonts.css'
 
 
 
+export const NavbarExpandedContext = createContext(null);
+
 // ROOT COMPONENT
-function App() {  
+export default function App() {  
+  const [isNavbarExpanded, setIsNavbarExpanded] = useState(false)
+
+  function handleNavbarOnExpand(value){
+    setIsNavbarExpanded(value)    
+  }
+
   return(
-    <div className='container-fluid app'>
-        <PokedexSearch/>
+    <div className='app d-flex flex-column flex-lg-row'>
+      <Navbar
+        onExpand={handleNavbarOnExpand}/>              
+      <NavbarExpandedContext.Provider value={isNavbarExpanded}>
+        <PokedexPage/>
+        <Outlet/>        
+      </NavbarExpandedContext.Provider>      
     </div>
   )
 }
 
 
-
-export default App

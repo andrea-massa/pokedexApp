@@ -1,0 +1,15 @@
+@media screen and (min-width: 992px){
+    .pokemon-page{
+        background: linear-gradient(180deg, #E40E0E 0%, #3A0E0E 50%, #d3d3d3 100%);
+    }
+}
+
+@media screen and (max-width: 992px){
+    .pokemon-page{
+        background: linear-gradient(180deg, #E40E0E 0%, #3A0E0E 85%, #d3d3d3 100%);
+    }
+}
+
+.pokemon-page{
+    min-height: 100vh;
+}

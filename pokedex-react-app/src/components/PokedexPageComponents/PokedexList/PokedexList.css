@@ -1,0 +1,10 @@
+@media only screen and (max-width: 992px){
+    #pokedex-list{
+        transition: all 100ms linear;
+        margin-top: 100px;
+    }    
+    #pokedex-list.high-margin{
+        transition: all 100ms linear;
+        margin-top: 250px;
+    }    
+}
