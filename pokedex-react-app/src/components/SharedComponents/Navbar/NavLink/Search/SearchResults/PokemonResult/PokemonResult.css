@@ -1,13 +1,13 @@
 .pokemon-result{    
     text-align: start;
     text-indent: 20px;        
-    font-size: 16pt;    
+    font-size: 12pt;    
     height: 75px;
-    transition: left 1s linear 100ms;
+    transition: transform 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .pokemon-result:hover{    
-    position: relative;
-    left: 20px;
+    transition: transform 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275) 50ms;
+    transform: translateX(20px);
 }
     .pokemonData{        
         color: white;
@@ -23,4 +23,15 @@
             text-indent: 0;
             padding: 0px 10px;
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.00) 100%), #B3A7FF;
-        }        
+        }
+        .pokemonImage{
+            max-width: 75px;
+        }
+
+/* Mobile View */
+@media only screen and (max-width: 992px){
+    .pokemon-result{
+        font-size: 10pt;
+        max-height: 60px;
+    }
+}
