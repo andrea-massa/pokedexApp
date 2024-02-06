@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link } from "react-router-dom";
 
 import "./PokemonResult.css"
 
@@ -45,11 +46,11 @@ export default function PokemonResult({name}){
     return(
         <li className="pokemon-result">
             {pokemonData !== null &&
-                <a className="pokemonData" href={pokemonData.path}>
+                <Link className="pokemonData" to={pokemonData.path}>                    
                     <span className="pokemonId">{pokemonData.id} </span>
                     <span className="pokemonName">{pokemonData.name}</span>       
                     <img className="pokemonImage" src={pokemonData.imageUrl} alt={pokemonData.name}/>                                        
-                </a>
+                </Link>
             }
         </li>
     )
