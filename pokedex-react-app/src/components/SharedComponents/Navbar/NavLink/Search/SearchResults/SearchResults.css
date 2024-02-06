@@ -17,3 +17,18 @@
         justify-content: space-between;
         overflow-x: hidden;        
     }
+
+/* Mobile View */
+@media only screen and (max-width: 992px){
+    .search-results{        
+        font-size: 12pt;            
+    }
+    .query-section{
+        margin-top: 3px;
+        padding-top: 5px;
+        margin-bottom: 2px;
+    }
+    .matches-list{
+        top: -50px;
+    }
+}

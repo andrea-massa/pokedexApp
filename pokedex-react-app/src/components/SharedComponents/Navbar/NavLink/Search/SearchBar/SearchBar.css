@@ -12,9 +12,10 @@
     }
 
 
-/* Mobile View
+/* Mobile View */
 @media only screen and (max-width: 992px){
     .search-bar input{
-        max-width: 80%;
+        height: 12pt;
+        font-size: 10pt;
     }
-} */
+}

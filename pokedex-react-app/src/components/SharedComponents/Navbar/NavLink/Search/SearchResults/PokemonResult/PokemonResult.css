@@ -27,3 +27,11 @@
         .pokemonImage{
             max-width: 75px;
         }
+
+/* Mobile View */
+@media only screen and (max-width: 992px){
+    .pokemon-result{
+        font-size: 10pt;
+        max-height: 60px;
+    }
+}

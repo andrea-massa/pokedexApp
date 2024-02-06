@@ -30,12 +30,15 @@
     /* Mobile View */
     @media only screen and (max-width: 992px) {
         .navlink{
-            font-size: 20pt;
+            font-size: 14pt;
         }
         .navlink.expanded{
             align-self: center;
         }
         .navlink .icon{
-            font-size: 40px;
+            font-size: 30px;
+            margin-top: 2px;
+            margin-right: 10px;
+            margin-left: 2px
         }
     }
