@@ -1,9 +1,10 @@
 .search-results{
     text-transform: none;
     text-align: left;       
+    font-size: 14pt;    
 }
     .query-section{        
-        margin: 50px 20px 20px 20px;                
+        margin: 30px 20px 10px 20px;                
         padding-top: 10px;        
         text-indent: 20px;            
     }
@@ -12,6 +13,7 @@
         top: -40px;        
         left: 30px;
         display: flex;
-        flex-direction: column;        
+        flex-direction: column;                
+        justify-content: space-between;
         overflow-x: hidden;        
     }

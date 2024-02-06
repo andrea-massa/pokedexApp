@@ -55,7 +55,7 @@
         }
         .navbar.expanded{
             transition: all 100ms linear;
-            width: 35%;
+            width: 28%;
         }            
             .navbar.expanded .nav-header{
                 display: flex;
@@ -68,7 +68,7 @@
             }
         .navbar.collapsed{
             transition: all 100ms linear;
-            width: 120px;
+            width: 80px;
         }
             .navbar-collapsed .nav-header{
                 width: 90%;
