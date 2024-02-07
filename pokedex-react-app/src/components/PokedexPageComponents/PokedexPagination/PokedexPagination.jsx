@@ -6,12 +6,13 @@ import "./PokedexPagination.css"
 
 
 function PokedexPagination({currentState, getPrev, getNext, offset, limit, customQuery, upperLimit}){
-    let [numPills, setNumPills] = useState(2)
-    
+    let [numPills, setNumPills] = useState(window.innerWidth < 992 ? 1 : 2)
 
-    function generatePaginationPills(){
+
+
+    function generatePaginationPills(){        
         let currentOffset = offset
-        let paginationPills = []
+        let paginationPills = []        
         for (let i = offset - limit * numPills; i <= offset + limit * numPills; i += limit){
             if(i >= 0 && i < upperLimit - limit){
                 paginationPills.push(
