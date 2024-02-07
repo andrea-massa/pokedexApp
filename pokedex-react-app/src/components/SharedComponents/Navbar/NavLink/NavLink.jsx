@@ -16,7 +16,6 @@ export default function NavLink({name, label, icon, isExpanded, isActive, activa
     
     function handleDropUpClick(){
         if(isActive){
-            console.log('Deactivating the Link')
             deactivateLink(name)
         }
     }
