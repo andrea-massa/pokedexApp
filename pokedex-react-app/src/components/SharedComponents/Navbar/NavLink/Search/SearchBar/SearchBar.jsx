@@ -1,6 +1,6 @@
 import "./SearchBar.css"
 
-export default function SearchBar({onChange}){
+export default function SearchBar({onChange, value}){
 
     function handleChange(e){
         onChange(e.target.value.toLowerCase())
@@ -8,7 +8,11 @@ export default function SearchBar({onChange}){
 
     return(
         <div className="search-bar">
-            <input type="text" placeholder="Ex. Magikarp" onChange={(e) => {handleChange(e)}}/>
+            <input 
+                type="text" 
+                placeholder="Ex. Magikarp"
+                value={value}
+                onChange={(e) => {handleChange(e)}}/>
         </div>
     )
 }
