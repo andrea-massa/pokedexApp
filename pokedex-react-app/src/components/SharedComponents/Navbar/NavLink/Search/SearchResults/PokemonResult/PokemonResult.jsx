@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./PokemonResult.css"
 
 
-export default function PokemonResult({name}){    
+export default function PokemonResult({name, onClick}){    
     // State of Pokemon Containing the data of the current result
     // this will be updated once the API call is made
     const [pokemonData, setPokemonData] = useState(null)
@@ -46,7 +46,9 @@ export default function PokemonResult({name}){
     return(
         <li className="pokemon-result">
             {pokemonData !== null &&
-                <Link className="pokemonData" to={pokemonData.path}>                    
+                <Link className="pokemonData" 
+                    to={pokemonData.path}
+                    onClick={onClick}>                    
                     <span className="pokemonId">{pokemonData.id} </span>
                     <span className="pokemonName">{pokemonData.name}</span>       
                     <img className="pokemonImage" src={pokemonData.imageUrl} alt={pokemonData.name}/>                                        

@@ -35,7 +35,9 @@ export default function NavLink({name, label, icon, isExpanded, isActive, activa
                 <div className="navlink-content">
                     {isActive && 
                         <>
-                            {children} <RiArrowDropUpLine onClick={()=> handleDropUpClick()}/>
+                            {children} 
+                            <RiArrowDropUpLine 
+                                onClick={()=> handleDropUpClick()}/>
                         </>}
                 </div>
         </li>   

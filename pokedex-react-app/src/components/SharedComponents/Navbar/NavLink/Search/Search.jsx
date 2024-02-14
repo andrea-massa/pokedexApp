@@ -53,13 +53,14 @@ export default function Search(){
     }
 
 
-
     return(        
         <div className="search">            
             <SearchBar
-                onChange={handleSearchBarChange}/>
+                onChange={handleSearchBarChange}
+                value={searchQuery}/>
             <SearchResults            
                 query={searchQuery}
+                handleResultClick={handleSearchBarChange}
                 matches={matches.slice(0, 5)}/>
         </div>
     )
