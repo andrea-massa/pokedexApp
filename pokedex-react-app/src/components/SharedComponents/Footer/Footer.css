@@ -2,13 +2,13 @@
     font-family: var(--mono-font);
     background: var(--ui-background-color); 
     color: white;
-    padding: 20px 10px;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
 }
     .footer-section{
-        margin: 10px 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }  
         .footer-section p{
             font-size: 10pt;   

@@ -4,7 +4,7 @@ import "./Footer.css"
 
 export default function Footer(){
     return (
-        <footer className="footer text-center">
+        <footer className="footer border">
             <section className="footer-section container-md" id="author-section">
                 <h4>© 2024 Andrea Massa</h4>
                 <p>andreamassa1999@gmail.com</p>
