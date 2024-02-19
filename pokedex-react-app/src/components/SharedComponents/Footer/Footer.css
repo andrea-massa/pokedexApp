@@ -1,0 +1,24 @@
+.footer{
+    font-family: var(--mono-font);
+    background: var(--ui-background-color); 
+    color: white;
+    padding: 20px 10px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+}
+    .footer-section{
+        margin: 10px 5px;
+    }  
+        .footer-section p{
+            font-size: 10pt;   
+        }
+        .footer-section #links-container{
+            /* border: solid blue; */
+        }
+        #credits-section{
+            margin-top: 50px;
+        }
+        #credits-section h5{
+            text-decoration: underline;
+        }
