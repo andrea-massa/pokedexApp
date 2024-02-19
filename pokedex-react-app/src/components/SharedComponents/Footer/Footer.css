@@ -41,3 +41,7 @@
         #credits-section h5{
             text-decoration: underline;
         }
+        #credits-section p{
+            display: flex;
+            flex-direction: column;
+        }

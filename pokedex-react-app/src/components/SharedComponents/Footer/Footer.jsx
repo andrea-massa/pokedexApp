@@ -30,8 +30,10 @@ export default function Footer(){
             </section>
             <section className="footer-section container-md" id="credits-section">
                 <h5>Attributions & Notices</h5>
-                <p>Pokemon Data provided by 
-                    <a href="https://pokeapi.co/" target="blank">PokeApi v2 by Nintendo</a>
+                <p>
+                    <a href="https://pokeapi.co/" target="blank">Pokemon Data provided by PokeApi v2 by Nintendo</a>
+                    <a href="https://www.flaticon.com/free-icons/github" title="github icons">Github icons created by Pixel perfect - Flaticon</a>
+                    <a href="https://www.flaticon.com/free-icons/linkedin" title="linkedin icons">Linkedin icons created by Google - Flaticon</a>
                 </p>
             </section>
         </footer>
