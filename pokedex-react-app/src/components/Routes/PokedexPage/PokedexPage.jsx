@@ -81,7 +81,7 @@ function PokedexPage(){
                     :
                     <AppError errorTxt={appError}/>
                     :
-                <Loading/>                
+                <Loading isAllPage={true}/>                
             }
 
             <div className="container-lg" id="pagination-container">
