@@ -1,11 +1,3 @@
-
-    #pokedex-list{
-        padding-bottom: 100px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
     #pagination-container{
         display: flex;
         justify-content: center;        

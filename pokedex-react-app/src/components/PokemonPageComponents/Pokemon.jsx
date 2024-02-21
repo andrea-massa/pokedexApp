@@ -56,7 +56,7 @@ function Pokemon(props){
                     <div className="d-none d-lg-block col-lg-4 image-container">
                         <PokemonImage 
                             img={props.pokemonData.sprites.other.home.front_default || props.pokemonData.sprites.front_default} 
-                            pokemonName={props.pokemonData.name}
+                            pokemonName={props.pokemonData.name} 
                             types={props.pokemonData.types}/>
                     </div>
                 </div>
@@ -66,7 +66,7 @@ function Pokemon(props){
                             endpoint={evolutionChainEndpoint}
                             changePokemon={props.changePokemon}/>
                     </div>
-                    <div className="col-12 col-lg-5 mt-5 stats-container">
+                    <div className="col-12 col-lg-4 ms-lg-5 mt-5 stats-container">
                         <PokemonStats stats={props.pokemonData.stats}/>                    
                     </div>
                 </div>
