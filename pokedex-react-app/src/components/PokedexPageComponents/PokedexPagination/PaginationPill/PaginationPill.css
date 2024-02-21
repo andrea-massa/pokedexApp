@@ -23,6 +23,8 @@
         margin: 0px 8px 0px 8px;
     }
     .pagination-pill .page-link{
-        font-size: 10pt;
+        padding-right: 5px;
+        padding-left: 5px;
+        font-size: 9pt;
     }
 }

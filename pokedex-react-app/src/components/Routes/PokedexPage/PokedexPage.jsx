@@ -14,8 +14,8 @@ import "./PokedexPage.css"
 function PokedexPage(){    
     const path = useLocation().pathname;
     const isNavbarExpanded = useContext(NavbarExpandedContext);
-    const [endpoints, setEndpoints] = useState({prev: null, current: 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=40', next: null})
-    const [paginationOptions, setPaginationOptions] = useState({offset: 0, limit: 40})
+    const [endpoints, setEndpoints] = useState({prev: null, current: 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=60', next: null})
+    const [paginationOptions, setPaginationOptions] = useState({offset: 0, limit: 60})
     const [allPokemonData, setAllPokemonData] = useState(null)
     const [isDataLoading, setIsDataLoading] = useState(true)
     const [appError, setAppError] = useState(null)
@@ -81,7 +81,7 @@ function PokedexPage(){
                     :
                     <AppError errorTxt={appError}/>
                     :
-                <Loading/>                
+                <Loading isAllPage={true}/>                
             }
 
             <div className="container-lg" id="pagination-container">
