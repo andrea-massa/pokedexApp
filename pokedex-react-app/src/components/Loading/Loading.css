@@ -6,6 +6,9 @@
     align-items: center;
     transform: translateZ(1px);
   }
+  .allPage{
+    height: 100vh;
+  }
   .loading > .pokeball {
     display: inline-block;
     width: 100px;

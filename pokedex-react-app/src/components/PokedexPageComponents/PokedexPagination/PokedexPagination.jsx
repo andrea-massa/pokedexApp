@@ -10,19 +10,6 @@ function PokedexPagination({currentState, getPrev, getNext, offset, limit, custo
     let [numPills, setNumPills] = useState(window.innerWidth < 992 ? 1 : 2)
 
 
-    // Use Effect that delays the component being shown
-    // useEffect(() => {
-    //     const timeout = setTimeout(() => { 
-    //         setPillVisible(true); 
-    //     }, 1000); 
-         
-    //     return () => {
-    //         clearTimeout(timeout)
-    //         setPillVisible(false)
-    //     }; 
-    // }, [])
-
-
     function handlePillsClick(){
         setPillVisible(false)
         setTimeout(() => setPillVisible(true), 200)
